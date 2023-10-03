@@ -1,11 +1,18 @@
-import { Container, InputSearch } from "./styled"
+import Bloom from "../../assets/icons/search"
+import { ButtonSearch, Container, ContentInputSearch, InputSearch, Title } from "./styled"
 
 
 export const ContainerSearch = () => {
 
     return (
         <Container>
-            <InputSearch placeholder="Cargo, tecnologia ou palavra-chave"/>
+            <ContentInputSearch>
+                <Title>O que você procura?</Title>
+                <ButtonSearch>
+                    <Bloom/>
+                </ButtonSearch>
+                <InputSearch type="text" placeholder="Cargo, tecnologia ou palavra-chave"/>
+            </ContentInputSearch>
         </Container>
     )
 }
