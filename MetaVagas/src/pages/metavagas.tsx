@@ -1,4 +1,5 @@
 import '../assets/style/global'
+import { ContainerDad } from '../assets/style/global'
 import { Banner } from '../components/banner'
 import { ContainerSearch } from '../components/containersearch'
 import { Header } from "../components/header"
@@ -6,13 +7,11 @@ import { Header } from "../components/header"
 
 export const MetaVagas = () => {
     return (
-        <div>
-            <div>
+        <ContainerDad>
                 <Header />
                 <Banner />
-            </div>
             <ContainerSearch />
-        </div>
+        </ContainerDad>
         
     )
 }

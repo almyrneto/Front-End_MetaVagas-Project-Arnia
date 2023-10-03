@@ -8,8 +8,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
-export const Container2 = styled.div`
-    position: absolute;
-    top: 70px;
-    width: 100%;
+export const ContainerDad = styled.div`
+    position: relative;
 `

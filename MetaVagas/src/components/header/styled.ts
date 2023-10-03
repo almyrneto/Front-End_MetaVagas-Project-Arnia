@@ -15,11 +15,11 @@ export const Container = styled.div`
     z-index: 1;
 `
 export const ContentImg = styled.div`
-    padding-left: 5.5rem;
+    padding-left: 20rem;
 `
 
 export const ContentButton = styled.div`
-    
+    padding-right: 15rem;
 `
 
 export const ButtonLogin = styled.button`

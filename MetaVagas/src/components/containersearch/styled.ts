@@ -2,13 +2,13 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     width: 75rem;
-    height: 10rem;
+    height: 15rem;
     background: #FFFFFF;
     z-index: 1;
-    position: relative;
+    position: absolute;
 
-    bottom: 60px;
-    left: 80px;
+    top: 51.5vh;
+    left: 35vh;
 
     border-radius: 16px;
 `
@@ -52,8 +52,8 @@ export const ButtonSearch = styled.button`
     position: absolute;
     border: 0;
     background: transparent;
-    left: 3.5rem;
-    bottom: 3.3rem;
+    left: 4rem;
+    bottom: 8.3rem;
     width: 24px;
     height: 24px;
     cursor: pointer;

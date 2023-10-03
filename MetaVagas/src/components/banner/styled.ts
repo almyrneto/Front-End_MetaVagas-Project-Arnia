@@ -11,6 +11,7 @@ export const Content = styled.div`
 
 export const ContentText = styled.div`
     margin-top: 6.5rem;
+    margin-right: 6.5rem;
 `
 
 export const ContentImg = styled.div`
