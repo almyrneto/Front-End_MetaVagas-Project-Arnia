@@ -31,6 +31,9 @@ export const ContainerSearch = () => {
             <RecentSearch>
                 <TitleRecentSearch>Buscas mais recentes:</TitleRecentSearch>
                 <MiniCard>Java</MiniCard>
+                <MiniCard>Java</MiniCard>
+                <MiniCard>Java</MiniCard>
+                <MiniCard>Java</MiniCard>
             </RecentSearch>
         </Container>
     )

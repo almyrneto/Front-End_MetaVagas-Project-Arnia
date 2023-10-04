@@ -10,7 +10,7 @@ export const MetaVagas = () => {
         <ContainerDad>
                 <Header />
                 <Banner />
-            <ContainerSearch />
+                <ContainerSearch />
         </ContainerDad>
         
     )

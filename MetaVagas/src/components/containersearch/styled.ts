@@ -140,6 +140,8 @@ export const MiniCard = styled.button`
     width: 52px;
     height: 32px;
 
+    margin-left: 1rem;
+
     border-radius: 8px;
     border: 1px solid #B2A1D9;
     color: #B2A1D9;

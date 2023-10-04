@@ -23,23 +23,36 @@ export const ContentButton = styled.div`
 `
 
 export const ButtonLogin = styled.button`
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24.57px;
     color: #FFFFFF;
     background: transparent;
+
     border-radius: 8px;
     border: 1px solid ;
-    width: 80px;
-    height: 40px;
-    
+    width: 127px;
+    height: 56px;
+
+    cursor: pointer;
 `
 
 export const ButtonRegister = styled.button`
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24.57px;
+    color: #1A1033;
     background: #FBB04D;
-    width: 230px;
-    height: 44px;
+
+    width: 302px;
+    height: 56px;
     border-radius: 8px;
     border: 1px solid;
 
-    color: #1A1033;
+    margin-left: 1rem;
+    cursor: pointer;
 `
 
 // export const Line = styled.div`
