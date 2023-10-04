@@ -12,7 +12,7 @@ export const Container = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto; /* Isso centralizará vertical e horizontalmente */
+    margin: auto;
 
     border-radius: 16px;
 `
@@ -116,4 +116,32 @@ export const IconPin = styled.div`
     background: transparent;
     top: 5rem;
     right: 38rem;
+`
+
+export const RecentSearch = styled.div`
+    display: flex;
+    align-items: center;
+`
+export const TitleRecentSearch = styled.div`
+    width: 13rem;
+    height: 20px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: #1A1033;
+
+    padding-left: 3.2rem;
+    margin-right: 1rem;
+`
+
+export const MiniCard = styled.button`
+    width: 52px;
+    height: 32px;
+
+    border-radius: 8px;
+    border: 1px solid #B2A1D9;
+    color: #B2A1D9;
+    background: transparent;
 `

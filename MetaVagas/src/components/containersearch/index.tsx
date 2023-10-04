@@ -1,6 +1,6 @@
 import MapPin from "../../assets/icons/mapPin"
 import Bloom from "../../assets/icons/search"
-import { ButtonSearch, Container, ContentInputLocation, ContentInputSearch, IconPin, IconSearch, InputContainer, InputLocation, InputSearch, Title } from "./styled"
+import { ButtonSearch, Container, ContentInputLocation, ContentInputSearch, IconPin, IconSearch, InputContainer, InputLocation, InputSearch, MiniCard, RecentSearch, Title, TitleRecentSearch } from "./styled"
 
 
 export const ContainerSearch = () => {
@@ -28,6 +28,10 @@ export const ContainerSearch = () => {
                     Buscar
                 </ButtonSearch>
             </InputContainer>
+            <RecentSearch>
+                <TitleRecentSearch>Buscas mais recentes:</TitleRecentSearch>
+                <MiniCard>Java</MiniCard>
+            </RecentSearch>
         </Container>
     )
 }
