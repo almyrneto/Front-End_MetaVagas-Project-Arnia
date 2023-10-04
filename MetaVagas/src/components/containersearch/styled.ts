@@ -1,14 +1,18 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    width: 75rem;
+    width: 90%;
+    max-width: 75rem;
     height: 15rem;
     background: #FFFFFF;
     z-index: 1;
     position: absolute;
 
-    top: 51.5vh;
-    left: 35vh;
+    top: 38.5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; /* Isso centralizará vertical e horizontalmente */
 
     border-radius: 16px;
 `
@@ -18,6 +22,7 @@ export const InputSearch = styled.input`
     height: 56px;
     border-radius: 8px;
     border: 1px solid #D1D1D1;
+    text-align: center;
 
     &::placeholder {
         font-family: 'Poppins';
@@ -27,7 +32,6 @@ export const InputSearch = styled.input`
         line-height: 30px;
 
         padding-right: 3.5rem;
-        text-align: center;
     }
     
 `
