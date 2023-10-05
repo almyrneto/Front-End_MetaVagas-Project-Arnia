@@ -3,15 +3,20 @@ import { ContainerDad } from '../assets/style/global'
 import { Banner } from '../components/banner'
 import { ContainerSearch } from '../components/containersearch'
 import { Header } from "../components/header"
+import { JobListings } from '../components/joblistings'
 
 
 export const MetaVagas = () => {
     return (
-        <ContainerDad>
+        <>
+            <ContainerDad>
                 <Header />
                 <Banner />
                 <ContainerSearch />
-        </ContainerDad>
+                    
+            </ContainerDad>
+            <JobListings />
+        </>
         
     )
 }
