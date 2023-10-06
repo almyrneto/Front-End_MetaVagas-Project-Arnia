@@ -6,6 +6,7 @@ import { Header } from "../components/header"
 import { JobListings } from '../components/joblistings'
 
 
+
 export const MetaVagas = () => {
     return (
         <>

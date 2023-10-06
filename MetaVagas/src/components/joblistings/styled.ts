@@ -43,3 +43,47 @@ export const TitleCard = styled.div`
     color: #1A1033;
     padding: 2rem;
 `
+
+export const ContentCard = styled.p`
+    width: 300px;
+    height: 20px;
+
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.6px;
+    color: #4A4A68;
+
+    padding-left: 4rem;
+`
+
+export const ContentTechnology = styled.p`
+    width: 230px;
+    height: 20px;
+    
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.6px;
+    color: #4A4A68;
+
+    margin-top: 1rem;
+    padding-left: 4rem;
+`
+export const ButtonRegister = styled.button`
+    
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24.57px;
+    color: #1A1033;
+    background: #FBB04D;
+
+    width: 357px;
+    height: 56px;
+    border-radius: 8px;
+    
+    margin-top: 2rem;
+    margin-left: 25rem;
+    cursor: pointer;
+`
