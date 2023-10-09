@@ -10,6 +10,8 @@ export const Title = styled.p`
     font-size: 32px;
     line-height: 48px;
     letter-spacing: -2%;
+
+    margin-bottom: 3rem;
 `
 
 export const ContainerJobListings = styled.div`
@@ -20,7 +22,7 @@ export const ContainerJobListings = styled.div`
 
 export const Grid = styled.div`
     display: grid;
-    grid-template-columns: minmax(340px, 1.2fr) 2fr;
+    grid-template-columns: minmax(340px, 1.3fr) 2fr;
     grid-gap: 1rem;
 `
 
@@ -45,6 +47,7 @@ export const TitleCard = styled.div`
 `
 
 export const ContentCard = styled.p`
+    display: flex;
     width: 300px;
     height: 20px;
 
@@ -54,10 +57,11 @@ export const ContentCard = styled.p`
     line-height: 19.6px;
     color: #4A4A68;
 
-    padding-left: 4rem;
+    padding-left: 2rem;
 `
 
 export const ContentTechnology = styled.p`
+    display: flex;
     width: 230px;
     height: 20px;
     
@@ -68,7 +72,7 @@ export const ContentTechnology = styled.p`
     color: #4A4A68;
 
     margin-top: 1rem;
-    padding-left: 4rem;
+    padding-left: 2rem;
 `
 export const ButtonRegister = styled.button`
     
@@ -78,6 +82,7 @@ export const ButtonRegister = styled.button`
     line-height: 24.57px;
     color: #1A1033;
     background: #FBB04D;
+    border: none;
 
     width: 357px;
     height: 56px;
@@ -85,5 +90,26 @@ export const ButtonRegister = styled.button`
     
     margin-top: 2rem;
     margin-left: 25rem;
+    cursor: pointer;
+`
+
+export const ContentIcon = styled.div`
+    padding-right: 8px;
+`
+
+export const DetailsPlus = styled.p`
+    width: 200px;
+    height: 20px;
+
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19.6px;
+
+    color: #5D5FEF;
+
+    padding-top: 1rem;
+    padding-left: 2rem;
+
     cursor: pointer;
 `

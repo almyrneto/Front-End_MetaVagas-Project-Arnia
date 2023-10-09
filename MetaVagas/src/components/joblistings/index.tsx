@@ -1,46 +1,99 @@
-import { ButtonRegister, CardJobListings, ContainerJobListings, ContentCard, ContentTechnology, Grid, Title, TitleCard } from "./styled"
+import MiniMap from "../../assets/icons/miniMap";
+import PcIcon from "../../assets/icons/miniPc";
+import { ButtonRegister, CardJobListings, ContainerJobListings, ContentCard, ContentIcon, ContentTechnology, DetailsPlus, Grid, Title, TitleCard } from "./styled"
 
-const jobListingsData = [
-  {
-    title: 'Desenvolvedor de Sistemas Pleno',
-    location: 'Localização: Betim - MG',
-    technology: 'Tecnologia: Python',
-  },
-  {
-    title: 'Desenvolvedor Full Stack Pleno',
-    location: 'Localização: Contagem - MG',
-    technology: 'Tecnologia: PHP',
-  },
-  {
-    title: 'Desenvolvedor de Sistemas Pleno',
-    location: 'Localização: São Paulo - SP',
-    technology: 'Tecnologia: JavaScript',
-  },
-  {
-    title: 'Desenvolvedor de Sistemas Pleno',
-    location: 'Localização: Montes Claros - MG',
-    technology: 'Tecnologia: NodeJs',
-  },
-];
 
 export const JobListings =() => {
   return (
     <ContainerJobListings>
-        <Title>Vagas mais recentes</Title>
-        <Grid>
-        {jobListingsData.map((job, index) => (
-            <CardJobListings key={index}>
-                <TitleCard>{job.title}</TitleCard>
-                {job.location && <ContentCard>{job.location}</ContentCard>}
-                <ContentTechnology>{job.technology}</ContentTechnology>
-            </CardJobListings>
-            ))}
-        </Grid>
-        <ButtonRegister>
-            Cadastre-se para ver mais vagas
-        </ButtonRegister>
-    </ContainerJobListings>
-  );
+            <Title>Vagas mais recentes</Title>
+            <Grid>
+                <CardJobListings>
+                    <TitleCard>
+                        Desenvolvedor de Sistemas Pleno
+                    </TitleCard>
+                    <ContentCard>
+                        <ContentIcon>
+                            <MiniMap />
+                        </ContentIcon>
+                        Localização: Betim - MG
+                    </ContentCard>
+                    <ContentTechnology>
+                        <ContentIcon>
+                            <PcIcon />
+                        </ContentIcon>
+                        Tecnologia: <b> Python</b>
+                    </ContentTechnology>
+                    <DetailsPlus>
+                        Ver mais detalhes 
+                    </DetailsPlus>
+                </CardJobListings>
+                <CardJobListings>
+                    <TitleCard>
+                        Desenvolvedor Full Stack Pleno
+                    </TitleCard>
+                    <ContentCard>
+                        <ContentIcon>
+                            <MiniMap />
+                        </ContentIcon>
+                        Localização: Contagem - MG
+                    </ContentCard>
+                    <ContentTechnology>
+                        <ContentIcon>
+                            <PcIcon />
+                        </ContentIcon>
+                        Tecnologia: <b> PHP</b>
+                    </ContentTechnology>
+                    <DetailsPlus>
+                        Ver mais detalhes 
+                    </DetailsPlus>
+                </CardJobListings>
+                <CardJobListings>
+                    <TitleCard>
+                        Desenvolvedor de Sistemas Pleno
+                    </TitleCard>
+                    <ContentCard>
+                        <ContentIcon>
+                            <MiniMap />
+                        </ContentIcon>
+                        Localização: São Paulo - SP
+                    </ContentCard>
+                    <ContentTechnology>
+                        <ContentIcon>
+                            <PcIcon />
+                        </ContentIcon>
+                        Tecnologia: <b> JavaScript</b>
+                    </ContentTechnology>
+                    <DetailsPlus>
+                        Ver mais detalhes 
+                    </DetailsPlus>
+                </CardJobListings>
+                <CardJobListings>
+                    <TitleCard>
+                        Desenvolvedor de Sistemas Pleno
+                    </TitleCard>
+                    <ContentCard>
+                        <ContentIcon>
+                            <MiniMap />
+                        </ContentIcon>
+                        Localização: Montes Claros - MG
+                    </ContentCard>
+                    <ContentTechnology>
+                        <ContentIcon>
+                            <PcIcon />
+                        </ContentIcon>
+                        Tecnologia: <b> NodeJs</b>
+                    </ContentTechnology>
+                    <DetailsPlus>
+                        Ver mais detalhes 
+                    </DetailsPlus>
+                </CardJobListings>
+            </Grid>
+            <ButtonRegister>
+                Cadastre-se para ver mais vagas
+            </ButtonRegister>
+        </ContainerJobListings>
+);
 }
 
 export default JobListings();
