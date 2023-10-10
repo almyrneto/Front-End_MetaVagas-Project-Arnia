@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
+import { BannerLogin } from "../components/bannerLogin";
 import { Header } from "../components/header";
 
 
@@ -11,6 +12,7 @@ export const Login = () => {
     return (
         <>
            <Header />
+           <BannerLogin />
         </>
     )
 }
