@@ -70,3 +70,17 @@ export const TitleInput = styled.p`
     padding: 2rem;
 
 `
+
+export const InputTitle = styled.p`
+    width: 160px;
+    height: 24px;
+
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #1A1033;
+
+    padding: 2rem;
+`
