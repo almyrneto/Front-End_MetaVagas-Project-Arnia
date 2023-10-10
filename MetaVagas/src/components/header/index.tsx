@@ -1,9 +1,15 @@
 import Metavagas from "../../assets/icons/metavagas"
 import { ButtonLogin, ButtonRegister, Container, ContentButton, ContentImg,  } from "./styled"
+import { useNavigate } from "react-router-dom"
 
 
 
 export const Header = () => {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/login')
+    }
 
     return (
         <>
@@ -12,7 +18,7 @@ export const Header = () => {
                     <Metavagas />
                 </ContentImg>
                 <ContentButton>
-                    <ButtonLogin>
+                    <ButtonLogin onClick={handleButtonClick}>
                         Entrar
                     </ButtonLogin>
                     <ButtonRegister>
