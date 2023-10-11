@@ -84,3 +84,45 @@ export const InputTitle = styled.p`
 
     padding: 2rem;
 `
+
+export const InputEmail = styled.input`
+    width: 450px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #D1D1D1;
+    background: #FFFFFF;
+    margin-left: 2rem;
+
+    &::placeholder {
+        width: 134px;
+        height: 30px;
+
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30.08px;
+
+        padding-left: 2rem;
+    }
+`
+
+export const InputPass = styled.input`
+    width: 450px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #D1D1D1;
+    background: #FFFFFF;
+    margin-left: 2rem;
+
+    &::placeholder {
+        width: 134px;
+        height: 30px;
+
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30.08px;
+
+        padding-left: 2rem;
+    }
+`

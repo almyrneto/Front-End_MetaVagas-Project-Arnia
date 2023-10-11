@@ -11,10 +11,13 @@ export const Header = () => {
         navigate('/login')
     }
 
+    const navigateHomePage = () => {
+        navigate('/')
+    }
     return (
         <>
             <Container>
-                <ContentImg>
+                <ContentImg onClick={navigateHomePage}>
                     <Metavagas />
                 </ContentImg>
                 <ContentButton>

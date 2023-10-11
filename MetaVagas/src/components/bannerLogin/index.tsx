@@ -1,7 +1,7 @@
 import MailIcon from "../../assets/icons/mailIcon"
 import TextLogin from "../../assets/icons/textLogin"
 import UserIcon from "../../assets/icons/userIcon"
-import { Title, ContentText, Content, TextParagraph, ContentIcon, InputCard, TitleInput, InputTitle } from "./styled"
+import { Title, ContentText, Content, TextParagraph, ContentIcon, InputCard, TitleInput, InputTitle, InputEmail, InputPass } from "./styled"
 
 
 export const BannerLogin = () => {
@@ -22,7 +22,14 @@ export const BannerLogin = () => {
             </ContentText>
             <InputCard>
                 <TitleInput>Faça seu Login</TitleInput>
-                <InputTitle>Seu e-mail</InputTitle>
+                <>
+                    <InputTitle>Seu e-mail</InputTitle>
+                    <InputEmail type="email" placeholder="ana@gmail.com" />
+                </>
+                <>
+                    <InputTitle>Senha</InputTitle>
+                    <InputPass type="password" placeholder="************"/>
+                </>
             </InputCard>
         </Content>
     )

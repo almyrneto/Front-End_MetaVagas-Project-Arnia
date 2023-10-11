@@ -16,6 +16,7 @@ export const Container = styled.div`
 `
 export const ContentImg = styled.div`
     padding-left: 20rem;
+    cursor: pointer;
 `
 
 export const ContentButton = styled.div`
