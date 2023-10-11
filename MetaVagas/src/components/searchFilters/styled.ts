@@ -11,7 +11,7 @@ align-items: flex-end;
 justify-content : space-between;
 width : 100%;
 padding: 5% 10%;
-height : 783px;
+min-height : 783px;
 background: #1A1033;
 font-family: Poppins;
 >div{
