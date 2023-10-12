@@ -7,12 +7,16 @@ import { useNavigate } from "react-router-dom"
 export const Header = () => {
     const navigate = useNavigate();
 
-    const handleButtonClick = () => {
+    const navigateLogin = () => {
         navigate('/login')
     }
 
     const navigateHomePage = () => {
         navigate('/')
+    }
+
+    const navigateRegister = () => {
+        navigate('/register')
     }
     return (
         <>
@@ -21,10 +25,10 @@ export const Header = () => {
                     <Metavagas />
                 </ContentImg>
                 <ContentButton>
-                    <ButtonLogin onClick={handleButtonClick}>
+                    <ButtonLogin onClick={navigateLogin}>
                         Entrar
                     </ButtonLogin>
-                    <ButtonRegister>
+                    <ButtonRegister onClick={navigateRegister}>
                         cadastra-se gratuitamente
                     </ButtonRegister>
                 </ContentButton>

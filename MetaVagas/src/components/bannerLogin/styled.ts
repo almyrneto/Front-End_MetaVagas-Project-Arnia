@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Title = styled.p`
@@ -49,11 +50,13 @@ export const ContentIcon = styled.div`
 
 export const InputCard = styled.div`
     width: 517px;
-    height: 479px;
+    height: 490px;
 
+    box-shadow: 0px 15px 35px 0px #D0D0D033;
     border-radius: 16px;
     background: #FFFFFF;
     margin-right: 22.3rem;
+    margin-top: 2rem;
 `
 
 export const TitleInput = styled.p`
@@ -92,6 +95,7 @@ export const InputEmail = styled.input`
     border: 1px solid #D1D1D1;
     background: #FFFFFF;
     margin-left: 2rem;
+    padding-left: 2rem;
 
     &::placeholder {
         width: 134px;
@@ -102,8 +106,9 @@ export const InputEmail = styled.input`
         font-size: 16px;
         line-height: 30.08px;
 
-        padding-left: 2rem;
+        
     }
+
 `
 
 export const InputPass = styled.input`
@@ -113,6 +118,7 @@ export const InputPass = styled.input`
     border: 1px solid #D1D1D1;
     background: #FFFFFF;
     margin-left: 2rem;
+    padding-left: 2rem;
 
     &::placeholder {
         width: 134px;
@@ -123,6 +129,47 @@ export const InputPass = styled.input`
         font-size: 16px;
         line-height: 30.08px;
 
-        padding-left: 2rem;
+        
     }
+`
+
+export const ButtonLogin = styled.button`
+    width: 450px;
+    height: 56px;
+    border-radius: 8px;
+    background: #FBB04D;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24.57px;
+    color: #1A1033;
+
+    margin: 2rem;
+`
+
+export const Register = styled
+
+export const TextRegister = styled.p`
+    width: 500px;
+    height: 30px;
+
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30.08px;
+    color: #1A1033;
+
+    padding-left: 4.1rem;
+`
+
+
+export const StyledLink = styled(Link)`
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30.08px;
+    color: #1A1033;
 `
