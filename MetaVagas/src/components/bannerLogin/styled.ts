@@ -118,6 +118,7 @@ export const InputPass = styled.input`
     border: 1px solid #D1D1D1;
     background: #FFFFFF;
     margin-left: 2rem;
+    padding-top: 10px;
     padding-left: 2rem;
 
     &::placeholder {
@@ -150,7 +151,6 @@ export const ButtonLogin = styled.button`
     margin: 2rem;
 `
 
-export const Register = styled
 
 export const TextRegister = styled.p`
     width: 500px;
@@ -172,4 +172,6 @@ export const StyledLink = styled(Link)`
     font-size: 16px;
     line-height: 30.08px;
     color: #1A1033;
+
+    padding-left: 5px;
 `
