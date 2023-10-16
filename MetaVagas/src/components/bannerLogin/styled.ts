@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const media992to1199 = `
+    @media (min-width: 992px) and (max-width: 1199px)
+`;
+const media1200to1919 = `
+    @media (min-width: 1200px) and (max-width: 1919px)
+`;
+
 export const Title = styled.p`
     width: 395px;
     height: 31px;
@@ -13,11 +20,29 @@ export const Title = styled.p`
     color: #FFFFFF;
 
     margin-bottom: 1rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+    }
 `
 
 export const ContentText = styled.div`
     margin-top: 6.5rem;
     padding-left: 21.5rem;
+
+    ${media992to1199} {
+        margin-top: 5rem;
+        padding: 0;
+    }
+
+    ${media1200to1919} {
+        margin-top: 4rem;
+        padding-left: 9rem;
+    }
 `
 
 export const Content = styled.div`
@@ -27,6 +52,15 @@ export const Content = styled.div`
     height: 35rem;
     padding-top: 6rem;
     background: #1A1033;
+
+    ${media992to1199} {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ${media1200to1919} {
+        width: 100%;
+    }
 `
 
 export const TextParagraph = styled.p`
@@ -41,6 +75,15 @@ export const TextParagraph = styled.p`
     color: #FFFFFF;
 
     margin-left: 1rem;
+
+    ${media992to1199} {
+        width: auto;
+        font-size: 14px;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+    }
 `
 
 export const ContentIcon = styled.div`
@@ -57,6 +100,18 @@ export const InputCard = styled.div`
     background: #FFFFFF;
     margin-right: 22.3rem;
     margin-top: 2rem;
+
+    ${media992to1199} {
+        width: 100%;
+        margin: 0;
+    }
+
+    ${media1200to1919} {
+        width: 500px;
+        margin: 0;
+        margin-right: 5rem;
+        margin-top: 1rem;
+    }
 `
 
 export const TitleInput = styled.p`
@@ -72,6 +127,14 @@ export const TitleInput = styled.p`
 
     padding: 2rem;
 
+    ${media992to1199} {
+        width: 100%;
+    }
+
+    ${media1200to1919} {
+        width: 100%;
+    }
+
 `
 
 export const InputTitle = styled.p`
@@ -86,6 +149,14 @@ export const InputTitle = styled.p`
     color: #1A1033;
 
     padding: 2rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+    }
 `
 
 export const InputEmail = styled.input`
@@ -109,6 +180,13 @@ export const InputEmail = styled.input`
         
     }
 
+    ${media992to1199} {
+        width: 100%;
+    }
+
+    ${media1200to1919} {
+        width: 420px;
+    }
 `
 
 export const InputPass = styled.input`
@@ -132,6 +210,14 @@ export const InputPass = styled.input`
 
         
     }
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: 420px;
+    }
 `
 
 export const ButtonLogin = styled.button`
@@ -149,6 +235,14 @@ export const ButtonLogin = styled.button`
     color: #1A1033;
 
     margin: 2rem;
+
+    ${media992to1199} {
+        width: 420px;
+    }
+
+    ${media1200to1919} {
+        width: 420px;
+    }
 `
 
 
@@ -163,6 +257,16 @@ export const TextRegister = styled.p`
     color: #1A1033;
 
     padding-left: 4.1rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+        padding: 0;
+        padding-left: 3rem;
+    }
 `
 
 
@@ -174,4 +278,12 @@ export const StyledLink = styled(Link)`
     color: #1A1033;
 
     padding-left: 5px;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+    }
 `

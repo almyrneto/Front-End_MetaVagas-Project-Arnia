@@ -1,5 +1,12 @@
 import styled from "styled-components"
 
+const media992to1199 = `
+    @media (min-width: 992px) and (max-width: 1199px)
+`;
+const media1200to1919 = `
+    @media (min-width: 1200px) and (max-width: 1919px)
+`;
+
 export const Container = styled.div`
     display: flex;
     align-items: center;
@@ -12,15 +19,44 @@ export const Container = styled.div`
 
     position: fixed;
 
-    z-index: 1;
+    z-index: 3;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: 100%;
+        padding: 0;
+        padding-right: 3.5rem;
+        padding-left: 1rem;
+    }
 `
 export const ContentImg = styled.div`
     padding-left: 20rem;
     cursor: pointer;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        padding: 0;
+        padding-left: 8rem;
+    }
 `
 
 export const ContentButton = styled.div`
     padding-right: 15rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        padding: 0;
+        padding-right: 1.5rem;
+    }
 `
 
 export const ButtonLogin = styled.button`

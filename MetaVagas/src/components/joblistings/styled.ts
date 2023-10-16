@@ -1,5 +1,11 @@
 import styled from "styled-components"
 
+const media992to1199 = `
+    @media (min-width: 992px) and (max-width: 1199px)
+`;
+const media1200to1919 = `
+    @media (min-width: 1200px) and (max-width: 1919px)
+`;
 
 export const Title = styled.p`
     width: 702px;
@@ -18,12 +24,33 @@ export const ContainerJobListings = styled.div`
     margin-top: 12rem;
     padding-left: 23rem;
 
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        margin: 0;
+        padding: 0;
+        margin-top: 13rem;
+        padding-left: 9rem;
+    }
+
 `
 
 export const Grid = styled.div`
     display: grid;
     grid-template-columns: minmax(340px, 1.3fr) 2fr;
     grid-gap: 1rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        display: grid;
+        grid-template-columns: minmax(340px, 1.3fr) 1.4fr;
+        grid-gap: 1rem;
+    }
 `
 
 export const CardJobListings = styled.div`

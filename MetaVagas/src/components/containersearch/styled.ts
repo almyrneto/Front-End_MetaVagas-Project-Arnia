@@ -1,8 +1,14 @@
 import styled from "styled-components"
 
+const media992to1199 = `
+    @media (min-width: 992px) and (max-width: 1199px)
+`;
+const media1200to1919 = `
+    @media (min-width: 1200px) and (max-width: 1919px)
+`;
+
 export const Container = styled.div`
-    width: 90%;
-    max-width: 75rem;
+    width: 75rem;
     height: 15rem;
     background: #FFFFFF;
     z-index: 1;
@@ -15,6 +21,16 @@ export const Container = styled.div`
     margin: auto;
 
     border-radius: 16px;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: 85%;
+        margin-left: 8rem;
+        
+    }
 `
 
 export const InputSearch = styled.input`
@@ -22,7 +38,7 @@ export const InputSearch = styled.input`
     height: 56px;
     border-radius: 8px;
     border: 1px solid #D1D1D1;
-    text-align: center;
+    padding-left: 3rem;
 
     &::placeholder {
         font-family: 'Poppins';
@@ -31,9 +47,16 @@ export const InputSearch = styled.input`
         font-size: 16px;
         line-height: 30px;
 
-        padding-right: 3.5rem;
+        
     }
     
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: 425px;
+    }
 `
 
 export const Title = styled.p`
@@ -61,7 +84,15 @@ export const IconSearch = styled.button`
     bottom: 8.4rem;
     width: 24px;
     height: 24px;
-    cursor: pointer;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        left: 0;
+        left: 4.3rem;
+    }
 `
 
 export const InputContainer = styled.div`
@@ -75,7 +106,7 @@ export const InputLocation = styled.input`
     height: 56px;
     border-radius: 8px;
     border: 1px solid #D1D1D1;
-    text-align: center;
+    padding-left: 3rem;
 
     &::placeholder {
         font-family: 'Poppins';
@@ -85,7 +116,15 @@ export const InputLocation = styled.input`
         line-height: 30px;
 
         text-align: left;
-        padding-left: 3rem;
+        
+    }
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: 420px;
     }
 `
 
@@ -116,6 +155,15 @@ export const IconPin = styled.div`
     background: transparent;
     top: 5rem;
     right: 38rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        right: 0;
+        right: 36rem;
+    }
 `
 
 export const RecentSearch = styled.div`

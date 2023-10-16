@@ -1,10 +1,28 @@
 import styled from "styled-components";
 
+const media992to1199 = `
+    @media (min-width: 992px) and (max-width: 1199px)
+`;
+const media1200to1919 = `
+    @media (min-width: 1200px) and (max-width: 1919px)
+`;
+
 export const ContentCard = styled.div`
     display: flex;
 
     padding-top: 11rem;
     padding-left: 21rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+        padding: 0;
+        padding-top: 11rem;
+        padding-left: 9rem;
+    }
 `
 
 export const Title = styled.h1`
@@ -28,6 +46,15 @@ export const CardTuto = styled.div`
     background: #6950A1;
 
     margin-left: 5rem;
+
+    ${media992to1199} {
+        width: auto;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+        margin-left: 2.5rem;
+    }
 `
 
 export const NumberCard = styled.p`
