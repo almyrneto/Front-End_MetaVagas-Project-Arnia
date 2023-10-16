@@ -35,8 +35,8 @@ export const ContentText = styled.div`
     padding-left: 21.5rem;
 
     ${media992to1199} {
-        margin-top: 5rem;
         padding: 0;
+        padding-left: 10rem;
     }
 
     ${media1200to1919} {
@@ -54,8 +54,7 @@ export const Content = styled.div`
     background: #1A1033;
 
     ${media992to1199} {
-        flex-direction: column;
-        align-items: center;
+        width: 100%;
     }
 
     ${media1200to1919} {
@@ -102,8 +101,9 @@ export const InputCard = styled.div`
     margin-top: 2rem;
 
     ${media992to1199} {
-        width: 100%;
+        width: 400px;
         margin: 0;
+        
     }
 
     ${media1200to1919} {
@@ -181,7 +181,7 @@ export const InputEmail = styled.input`
     }
 
     ${media992to1199} {
-        width: 100%;
+        width: 320px;
     }
 
     ${media1200to1919} {
@@ -196,7 +196,7 @@ export const InputPass = styled.input`
     border: 1px solid #D1D1D1;
     background: #FFFFFF;
     margin-left: 2rem;
-    padding-top: 10px;
+    padding-top: 5px;
     padding-left: 2rem;
 
     &::placeholder {
@@ -212,7 +212,7 @@ export const InputPass = styled.input`
     }
 
     ${media992to1199} {
-        width: auto;
+        width: 320px;
     }
 
     ${media1200to1919} {
@@ -237,7 +237,7 @@ export const ButtonLogin = styled.button`
     margin: 2rem;
 
     ${media992to1199} {
-        width: 420px;
+        width: 320px;
     }
 
     ${media1200to1919} {
@@ -260,6 +260,7 @@ export const TextRegister = styled.p`
 
     ${media992to1199} {
         width: auto;
+        padding: 0;
     }
 
     ${media1200to1919} {
@@ -281,9 +282,27 @@ export const StyledLink = styled(Link)`
 
     ${media992to1199} {
         width: auto;
+        padding: 0;
+        padding-left: 3px;
     }
 
     ${media1200to1919} {
         width: auto;
+    }
+`
+
+export const CardEyeIcon = styled.button`
+    position: absolute;
+    right: 26rem;
+    bottom: 34.5rem;
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    ${media1200to1919} {
+        left: 0;
+        left: 73rem;
+        top: 23.6rem;
     }
 `

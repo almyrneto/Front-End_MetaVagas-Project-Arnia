@@ -1,5 +1,5 @@
 import Metavagas from "../../assets/icons/metavagas"
-import { ButtonLogin, ButtonRegister, Container, ContentButton, ContentImg,  } from "./styled"
+import { ButtonLogin, ButtonRegister, Container, ContentButton, ContentImg, LineHeader,  } from "./styled"
 import { useNavigate } from "react-router-dom"
 
 
@@ -33,7 +33,7 @@ export const Header = () => {
                     </ButtonRegister>
                 </ContentButton>
             </Container>
-            {/* <Line /> */}
+            <LineHeader />
         </>    
     )
 }

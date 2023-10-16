@@ -15,6 +15,9 @@ export const ContentCard = styled.div`
 
     ${media992to1199} {
         width: auto;
+        padding: 0;
+        padding-top: 10rem;
+        
     }
 
     ${media1200to1919} {
@@ -45,10 +48,11 @@ export const CardTuto = styled.div`
     border-radius: 16px;
     background: #6950A1;
 
-    margin-left: 5rem;
+    margin-left: 3.2rem;
 
     ${media992to1199} {
         width: auto;
+        margin-left: 1px;
     }
 
     ${media1200to1919} {

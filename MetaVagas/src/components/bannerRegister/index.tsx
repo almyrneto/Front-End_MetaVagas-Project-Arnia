@@ -1,10 +1,18 @@
+import { useState } from "react"
+import EyeIcon from "../../assets/icons/eyeIcon"
 import MailIcon from "../../assets/icons/mailIcon"
 import TextLogin from "../../assets/icons/textLogin"
 import UserIcon from "../../assets/icons/userIcon"
-import { ButtonLogin, Content, ContentIcon, ContentText, InputCard, InputEmail, InputPass, StyledLink, TextParagraph, Title, TitleInput } from "../bannerLogin/styled"
-import { InputTitle, TextRegister } from "./styled"
+import { ButtonLogin, CardEyeIcon, Content, ContentIcon, ContentText, InputCard, InputEmail, InputPass, StyledLink, TextParagraph, Title, TitleInput } from "../bannerLogin/styled"
+import { CardEyeConfirm, InputTitle, TextRegister } from "./styled"
+import EyeIconConfirm from "../../assets/icons/eyeIconConfirm"
 
 export const BannerRegister = () => {
+    const [showPassword, setShowPassword] = useState(false)
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    }
 
     return (
         <Content>
@@ -28,11 +36,17 @@ export const BannerRegister = () => {
                 </>
                 <>
                     <InputTitle>Senha</InputTitle>
-                    <InputPass type="password" placeholder="************"/>
+                    <InputPass type={showPassword ? 'text' : 'password'} placeholder="************"/>
+                    <CardEyeIcon onClick={togglePasswordVisibility}>
+                        <EyeIcon />
+                    </CardEyeIcon>
                 </>
                 <>
                     <InputTitle>Confirmar senha</InputTitle>
-                    <InputPass type="password" placeholder="************"/>
+                    <InputPass type={showPassword ? 'text' : 'password'} placeholder="************"/>
+                    <CardEyeConfirm onClick={togglePasswordVisibility}>
+                        <EyeIconConfirm />
+                    </CardEyeConfirm>
                 </>
                 <ButtonLogin>Cadastrar</ButtonLogin>
                 <TextRegister>

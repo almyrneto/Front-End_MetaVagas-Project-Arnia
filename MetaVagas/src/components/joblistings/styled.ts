@@ -58,7 +58,7 @@ export const CardJobListings = styled.div`
     height: 191px;
 
     background: #FFFFFF;
-    border: 1px solid #ECF1F4;
+    border: 2px solid #ECF1F4;
     border-radius: 16px;
     box-shadow: 0px 15px 35px 0px #D0D0D033;
 

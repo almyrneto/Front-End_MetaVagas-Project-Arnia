@@ -20,9 +20,14 @@ export const Container = styled.div`
     position: fixed;
 
     z-index: 3;
+    
+
 
     ${media992to1199} {
         width: auto;
+        
+        
+        
     }
 
     ${media1200to1919} {
@@ -31,7 +36,24 @@ export const Container = styled.div`
         padding-right: 3.5rem;
         padding-left: 1rem;
     }
+
 `
+
+export const LineHeader = styled.div`
+    content: "";
+        position: absolute;
+        left: 21.5rem;
+        top: 90px;
+        width: 63%;
+        height: 1px;
+        background: #08001A;
+
+        ${media1200to1919} {
+            width: 83%;
+            left: 9rem;
+    }
+`
+
 export const ContentImg = styled.div`
     padding-left: 20rem;
     cursor: pointer;
