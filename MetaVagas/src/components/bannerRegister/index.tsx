@@ -3,15 +3,20 @@ import EyeIcon from "../../assets/icons/eyeIcon"
 import MailIcon from "../../assets/icons/mailIcon"
 import TextLogin from "../../assets/icons/textLogin"
 import UserIcon from "../../assets/icons/userIcon"
-import { ButtonLogin, CardEyeIcon, Content, ContentIcon, ContentText, InputCard, InputEmail, InputPass, StyledLink, TextParagraph, Title, TitleInput } from "../bannerLogin/styled"
-import { CardEyeConfirm, InputTitle, TextRegister } from "./styled"
+import { ButtonLogin, CardEyeIcon, Content, ContentIcon, ContentText, InputEmail, InputPass, StyledLink, TextParagraph, Title, TitleInput } from "../bannerLogin/styled"
+import { CardEyeConfirm, InputCard, InputTitle, TextRegister } from "./styled"
 import EyeIconConfirm from "../../assets/icons/eyeIconConfirm"
 
 export const BannerRegister = () => {
     const [showPassword, setShowPassword] = useState(false)
+    const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
+    }
+
+    const togglePasswordConfirmVisibility = () => {
+        setShowPasswordConfirm(!showPasswordConfirm);
     }
 
     return (
@@ -43,8 +48,8 @@ export const BannerRegister = () => {
                 </>
                 <>
                     <InputTitle>Confirmar senha</InputTitle>
-                    <InputPass type={showPassword ? 'text' : 'password'} placeholder="************"/>
-                    <CardEyeConfirm onClick={togglePasswordVisibility}>
+                    <InputPass type={showPasswordConfirm ? 'text' : 'password'} placeholder="************"/>
+                    <CardEyeConfirm onClick={togglePasswordConfirmVisibility}>
                         <EyeIconConfirm />
                     </CardEyeConfirm>
                 </>

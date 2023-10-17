@@ -18,6 +18,10 @@ export const BannerLogin = () => {
 
     const navigate = useNavigate()
 
+    const navigateToTimeline = () => {
+        navigate('/timeline')
+    }
+
     return (
         <Content>
             <ContentText>
@@ -46,14 +50,7 @@ export const BannerLogin = () => {
                     </CardEyeIcon>
                 </>
                 <ButtonLogin
-                    onClick={async () => {
-                        try {
-                            await postLogin(email, password)
-                            navigate('/timeline')
-                        } catch (error) {
-                            alert((error as any).message)
-                        }
-                    }}
+                    onClick={navigateToTimeline}   
                 >
                     Entrar
                 </ButtonLogin>

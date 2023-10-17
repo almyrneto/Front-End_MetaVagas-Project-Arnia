@@ -1,8 +1,36 @@
 import styled from "styled-components";
 
+const media992to1199 = `
+    @media (min-width: 992px) and (max-width: 1199px)
+`;
+
 const media1200to1919 = `
     @media (min-width: 1200px) and (max-width: 1919px)
 `;
+
+export const InputCard = styled.div`
+    width: 517px;
+    height: 595px;
+
+    box-shadow: 0px 15px 35px 0px #D0D0D033;
+    border-radius: 16px;
+    background: #FFFFFF;
+    margin-right: 22.3rem;
+    margin-top: 2rem;
+
+    ${media992to1199} {
+        width: 400px;
+        margin: 0;
+        
+    }
+
+    ${media1200to1919} {
+        width: 500px;
+        margin: 0;
+        margin-right: 5rem;
+        margin-top: 1rem;
+    }
+`
 
 export const InputTitle = styled.p`
     width: 210px;

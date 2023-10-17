@@ -92,7 +92,7 @@ export const ContentIcon = styled.div`
 
 export const InputCard = styled.div`
     width: 517px;
-    height: 490px;
+    height: 480px;
 
     box-shadow: 0px 15px 35px 0px #D0D0D033;
     border-radius: 16px;

@@ -10,7 +10,7 @@ const media1200to1919 = `
 export const ContentCard = styled.div`
     display: flex;
 
-    padding-top: 11rem;
+    padding-top: 15rem;
     padding-left: 21rem;
 
     ${media992to1199} {
@@ -23,7 +23,7 @@ export const ContentCard = styled.div`
     ${media1200to1919} {
         width: auto;
         padding: 0;
-        padding-top: 11rem;
+        padding-top: 12rem;
         padding-left: 9rem;
     }
 `
@@ -71,7 +71,8 @@ export const NumberCard = styled.p`
     line-height: 24.57px;
     color: #FFFFFF;
 
-    padding: 2rem;
+    padding: 1rem;
+    margin-left: 1rem;
 `
 
 export const TitleCard = styled.p`
