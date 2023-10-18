@@ -14,7 +14,6 @@ export const MetaVagas = () => {
                 <Header />
                 <Banner />
                 <ContainerSearch />
-                    
             </ContainerDad>
             <JobListings />
         </>
