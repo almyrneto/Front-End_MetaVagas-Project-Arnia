@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
-import { Container, ContentImg, LineHeader } from "../header/styled"
+import { LineHeader } from "../header/styled"
 import Metavagas from "../../assets/icons/metavagas";
-import { CardName, CardShortName, ContentName, TextName, TextShortName } from "./styled";
+import { ContentImg, Container, CardName, CardShortName, ContentName, TextName, TextShortName } from "./styled";
 import ArrowDownIcon from "../../assets/icons/arrowDown";
 
 
