@@ -40,6 +40,9 @@ p{
         font-size : 12px;
         color : #8C8CA1;
     }
+    a{
+        text-decoration : none;
+    }
 }
 >.registerCard{
     flex-direction : column;

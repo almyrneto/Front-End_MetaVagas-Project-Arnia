@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import '../assets/style/global'
 import { ContainerDad } from '../assets/style/global'
 import { Banner } from '../components/banner'
@@ -10,6 +11,7 @@ import { SearchFilters } from '../components/searchFilters'
 
 
 export const MetaVagas = () => {
+    const [footer, setFooter] = useState<""|"noShow">("")
     return (
         <>
             <ContainerDad>
@@ -19,7 +21,7 @@ export const MetaVagas = () => {
             </ContainerDad>
             <JobListings />
             <SearchFilters/>
-            <Footer/>
+            <Footer className = {footer}/>
         </>
         
     )

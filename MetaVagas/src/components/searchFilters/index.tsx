@@ -7,9 +7,12 @@ import ComputerIcon from "../../assets/icons/computer-line.tsx"
 import goRight from "../../assets/icons/arrow-right-line.svg"
 import RolesIcon from "../../assets/icons/roles.tsx"
 import MapPinLine from "../../assets/icons/map-pin-line-orange.tsx"
+import { Link } from "react-router-dom"
 
 let techs : string []= []
-const findTechnologies = (filter : string) => {
+type props = 'tech' | 'local' | 'role';
+
+const findTechnologies = (filter : props) => {
     techs = []
     if(filter === "tech"){
     for (let i = 0; i < vacancies.length; i++) {
@@ -62,8 +65,8 @@ export const SearchFilters = () => {
                 {technologies.map(tech => {
                     return (
                     <div className="card">
-                        <p><span>vagas</span><br />{tech}</p>
-                        <img src={goRight} alt="icon"/>
+                        <p><Link to={"/vacancies"}><span>vagas</span><br />{tech}</Link></p>
+                        <Link to={"/vacancies"}><img src={goRight}  alt="icon"/></Link>
                     </div>)
                 })}
             </S.Container>
