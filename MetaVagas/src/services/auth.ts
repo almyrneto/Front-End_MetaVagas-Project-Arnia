@@ -31,7 +31,7 @@ export const LoginService = async (payload: LoginUserPayload) => {
     localStorage.setItem("token", token);
 
     api.defaults.headers.Authorization = token;
-    return { success: true, message: name };
+    return { success: true, token: token };
   } catch (error) {
     if (isAxiosError(error)) {
       if (error.status === 404) {
