@@ -5,11 +5,17 @@ import UserIcon from "../../assets/icons/userIcon"
 import { Title, ContentText, Content, TextParagraph, ContentIcon, InputCard, TitleInput, InputTitle, InputEmail, InputPass, ButtonLogin, TextRegister, StyledLink, CardEyeIcon } from "./styled"
 import { useState } from "react"
 import EyeIcon from "../../assets/icons/eyeIcon"
+import { LoginService } from "../../services/auth"
+import { useForm } from "react-hook-form"
 
+type submit = {
+    email: string;
+    password: string;
+};
 
 export const BannerLogin = () => {
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('12345678')
+    const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
     const togglePasswordVisibility = () => {
@@ -18,9 +24,18 @@ export const BannerLogin = () => {
 
     const navigate = useNavigate()
 
-    const navigateToTimeline = () => {
-        navigate('/timeline')
+    const login = async () => {
+        try {
+            const Response = await LoginService({ email, password })
+            localStorage.setItem("token2", Response!.token);
+
+            navigate('/timeline')
+        } catch (error) {
+            alert((error as any).message)
+        }
     }
+
+    const { register, handleSubmit } = useForm<submit>();
 
     return (
         <Content>
@@ -38,24 +53,24 @@ export const BannerLogin = () => {
             </ContentText>
             <InputCard>
                 <TitleInput>Faça seu Login</TitleInput>
-                <>
-                    <InputTitle>Seu e-mail</InputTitle>
-                    <InputEmail value={email} type="email" placeholder="ana@gmail.com" onChange={event => setEmail(event.target.value)} />
-                </>
-                <>
-                    <InputTitle>Senha</InputTitle>
-                    <InputPass value={password} type={showPassword ? 'text' : 'password'} placeholder="************" onChange={event => setPassword(event.target.value)} />
-                    <CardEyeIcon onClick={togglePasswordVisibility}>
-                        <EyeIcon />
-                    </CardEyeIcon>
-                </>
-                <ButtonLogin
-                    onClick={navigateToTimeline}   
-                >
-                    Entrar
-                </ButtonLogin>
+                <form onSubmit={handleSubmit(login)}>
+                    <>
+                        <InputTitle>Seu e-mail</InputTitle>
+                        <InputEmail {...register("email")} value={email} type="email" placeholder="ana@gmail.com" required={true} minLength={10} onChange={event => setEmail(event.target.value)} />
+                    </>
+                    <>
+                        <InputTitle>Senha</InputTitle>
+                        <InputPass {...register("password")} value={password} type={showPassword ? 'text' : 'password'} required={true} minLength={6} placeholder="************" onChange={event => setPassword(event.target.value)} />
+                        <CardEyeIcon onClick={togglePasswordVisibility}>
+                            <EyeIcon />
+                        </CardEyeIcon>
+                    </>
+                    <ButtonLogin type="submit">
+                        Entrar
+                    </ButtonLogin>
+                </form>
                 <TextRegister>
-                    Não é cadastrado? 
+                    Não é cadastrado?
                     <StyledLink to={"/register"}>
                         Cadastre-se gratuitamente
                     </StyledLink>

@@ -1,9 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import MiniMap from "../../assets/icons/miniMap";
 import PcIcon from "../../assets/icons/miniPc";
 import { ButtonRegister, CardJobListings, ContainerJobListings, ContentCard, ContentIcon, ContentTechnology, DetailsPlus, Grid, Title, TitleCard } from "./styled"
 
 
 export const JobListings =() => {
+    const navigate = useNavigate();
+
+    const navigateRegister = () => {
+        navigate('/register')
+    }
+
   return (
     <ContainerJobListings>
             <Title>Vagas mais recentes</Title>
@@ -89,11 +96,10 @@ export const JobListings =() => {
                     </DetailsPlus>
                 </CardJobListings>
             </Grid>
-            <ButtonRegister>
+            <ButtonRegister onClick={navigateRegister}>
                 Cadastre-se para ver mais vagas
             </ButtonRegister>
         </ContainerJobListings>
 );
 }
 
-export default JobListings();

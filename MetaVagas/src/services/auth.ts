@@ -31,16 +31,11 @@ export const LoginService = async (payload: LoginUserPayload) => {
     localStorage.setItem("token", token);
 
     api.defaults.headers.Authorization = token;
-    return { success: true, token: token };
-  } catch (error) {
-    if (isAxiosError(error)) {
-      if (error.status === 404) {
-        return { success: false, message: "Usuário não encontrado" };
-      }
-      if (error.status === 401) {
-        return { success: false, message: "Senha incorreta" };
-      }
-    }
+    if (userData.status !== 200)
+      return { success: true, token: token };
+  } catch (error: any) {
+    throw new Error('Usuário ou Senha incorretos')
+    console.log(error)
   }
 };
 
