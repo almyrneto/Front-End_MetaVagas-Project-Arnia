@@ -1,57 +1,49 @@
-import { AxiosResponse, isAxiosError } from "axios";
+import { AxiosResponse } from "axios";
 import api from "./config";
+import { defaultErros } from "./services-utils/defaultErros";
+import {
+  CreateUserPayload,
+  LoginApi,
+  LoginUserPayload,
+} from "./services-utils/types";
 
-type LoginApi = {
-  token: string;
-  name: string;
-};
-
-type LoginUserPayload = {
-  email: string;
-  password: string;
-};
-
-type CreateUserPayload = {
-  name: string;
-  email: string;
-  password: string;
-  role?: "admin" | "advertiser" | "candidate";
-  isActive?: boolean;
-};
-
+/**
+ * Attempts to log in the user and store the token if the credentials are correct.
+ * @param payload - An object with email and password fields.
+ * @returns true if the user credentials are correct; otherwise, it throws an error.
+ */
 export const LoginService = async (payload: LoginUserPayload) => {
   try {
     const userData: AxiosResponse<LoginApi> = await api.post(
       "/auth/login",
       payload
     );
-
     const { token } = userData.data;
 
     localStorage.setItem("token", token);
-
     api.defaults.headers.Authorization = token;
-    if (userData.status !== 200)
-      return { success: true, token: token };
-  } catch (error: any) {
-    throw new Error('Usuário ou Senha incorretos')
-    console.log(error)
+
+    return { token };
+  } catch (error) {
+    defaultErros(error);
   }
 };
 
+/**
+ * It creates a user at the database.
+ * @param payload is an object with email, password and name fields. Role is an optional field.
+ * @returns true if the user is created, otherwise it throws an error.
+ */
 export const CreateUserService = async (payload: CreateUserPayload) => {
   try {
     const response: AxiosResponse<{ message: string }> = await api.post(
       "/auth/register",
       payload
     );
-
-    return { success: true, message: response.data.message };
-  } catch (error) {
-    if (isAxiosError(error)) {
-      if (error.status === 400) {
-        return { success: false, message: error.response?.data.message };
-      }
+    if (response.status === 201) {
+      return true;
     }
+  } catch (error) {
+    defaultErros(error);
   }
 };

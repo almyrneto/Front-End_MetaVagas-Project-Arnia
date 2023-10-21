@@ -3,115 +3,178 @@ import api from "./config";
 import { UpdateUser, User, Users } from "./services-utils/types";
 import { defaultErros } from "./services-utils/defaultErros";
 
-// Todos os usuários
-export const getAllUsers = async (): Promise<Users> => {
+const EntityRoute = "/users";
+
+/**
+ * Returns a list of users.
+ * @returns An array of users from the database.
+ */
+export const GetAllUsersService = async (): Promise<Users | undefined> => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    throw new Error("Token not available");
+  }
   try {
-    const response: AxiosResponse<Users> = await api.get("/users", {
+    const response: AxiosResponse<Users> = await api.get(EntityRoute, {
       headers: {
-        Authorization: localStorage.getItem("token") ?? "",
+        Authorization: `Bearer ${token}` ?? "",
       },
     });
+    return response.data;
+  } catch (error) {
+    defaultErros(error);
+  }
+};
+
+/**
+ * Returns a user from the database.
+ * @param id - The ID of the user to retrieve.
+ * @returns An object with the user's details.
+ */
+export const GetOneUserService = async (
+  id: number
+): Promise<User | undefined> => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    throw new Error("Token not available");
+  }
+  try {
+    const response: AxiosResponse<User> = await api.get(
+      `${EntityRoute}/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}` ?? "",
+        },
+      }
+    );
 
     return response.data;
   } catch (error) {
     defaultErros(error);
   }
-
-  throw new Error("Ocorreu um erro em nossos servidores");
 };
 
-// Usuário pelo id
-export const getOneUser = async (id: string): Promise<User> => {
+/**
+ * Returns the profile of the currently logged-in user.
+ * @returns An object with the current user's profile.
+ */
+export const ProfileUserService = async (): Promise<User | undefined> => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    throw new Error("Token not available");
+  }
   try {
-    const response: AxiosResponse<User> = await api.get("/users", {
-      headers: {
-        Authorization: localStorage.getItem("token") ?? "",
-      },
-      params: { id },
-    });
+    const response: AxiosResponse<User> = await api.get(
+      `${EntityRoute}/profile`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}` ?? "",
+        },
+      }
+    );
 
     return response.data;
   } catch (error) {
     defaultErros(error);
   }
-
-  throw new Error("Ocorreu um erro em nossos servidores");
 };
 
-// Usuário logado
-export const ProfileUser = async (): Promise<User> => {
-  try {
-    const response: AxiosResponse<User> = await api.get("/users/profile", {
-      headers: {
-        Authorization: localStorage.getItem("token") ?? "",
-      },
-    });
-
-    return response.data;
-  } catch (error) {
-    defaultErros(error);
-  }
-
-  throw new Error("Ocorreu um erro em nossos servidores");
-};
-
-// Atualizar o usuário
-export const updateUser = async (
-  id: string,
+/**
+ * Update a user's information.
+ * @param id - The ID of the user to update.
+ * @param data - The updated user data.
+ * @returns true if the user's details was updated. Otherwise, returns false.
+ */
+export const UpdateUserService = async (
+  id: number,
   data: UpdateUser
-): Promise<User> => {
-  try {
-    const response: AxiosResponse<User> = await api.patch(`/users`, data, {
-      headers: {
-        Authorization: localStorage.getItem("token") ?? "",
-      },
-      params: { id },
-    });
+): Promise<boolean | undefined> => {
+  const token = localStorage.getItem("token");
 
-    return response.data;
+  if (!token) {
+    throw new Error("Token not available");
+  }
+  try {
+    const response: AxiosResponse<User> = await api.patch(
+      `${EntityRoute}/${id}`,
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}` ?? "",
+        },
+      }
+    );
+
+    if (response.status === 200) {
+      return true;
+    }
   } catch (error) {
     defaultErros(error);
   }
-
-  throw new Error("Ocorreu um erro em nossos servidores");
 };
 
-// Soft-delete de um usuário (isActive:false)
-export const softDeleteUser = async (id: string): Promise<User> => {
+/**
+ * Soft-delete a user (isActive: false).
+ * @param id - The ID of the user to soft-delete.
+ * @returns true if the user's was soft-deleted. Otherwise, returns false.
+ */
+export const SoftDeleteUserService = async (
+  id: number
+): Promise<boolean | undefined> => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    throw new Error("Token not available");
+  }
   try {
     const response: AxiosResponse<User> = await api.delete(
-      `/users/${id}/soft-delete`,
+      `${EntityRoute}/${id}/soft-delete`,
       {
         headers: {
-          Authorization: localStorage.getItem("token") ?? "",
+          Authorization: `Bearer ${token}` ?? "",
         },
       }
     );
 
-    return response.data;
+    if (response.status === 200) {
+      return true;
+    }
   } catch (error) {
     defaultErros(error);
   }
-
-  throw new Error("Ocorreu um erro em nossos servidores");
 };
 
-// Restaurar um usuário do soft delete
-export const restoreUser = async (id: string): Promise<User> => {
+/**
+ * Restore a soft-deleted user.
+ * @param id - The ID of the user to restore.
+ * @returns true indicating the success of the restoration.
+ */
+export const RestoreUserService = async (
+  id: number
+): Promise<boolean | undefined> => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("Token not available");
+  }
+
   try {
     const response: AxiosResponse<User> = await api.post(
-      `/users/${id}/restore`,
+      `${EntityRoute}/${id}/restore`,
+      {},
       {
         headers: {
-          Authorization: localStorage.getItem("token") ?? "",
+          Authorization: `Bearer ${token}` ?? "",
         },
       }
     );
 
-    return response.data;
+    if (response.status === 201) {
+      return true;
+    }
   } catch (error) {
     defaultErros(error);
   }
-
-  throw new Error("Ocorreu um erro em nossos servidores");
 };

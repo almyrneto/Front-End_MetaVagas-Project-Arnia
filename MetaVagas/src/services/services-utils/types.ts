@@ -1,3 +1,28 @@
+// Entity Auth
+
+export type LoginApi = {
+  token: string;
+  name: string;
+};
+
+export type LoginUserPayload = {
+  email: string;
+  password: string;
+};
+
+export type CreateUserPayload = {
+  name: string;
+  email: string;
+  password: string;
+  role?: "admin" | "advertiser" | "candidate";
+  isActive?: boolean;
+};
+
+export type SuccessPayload = {
+  success: boolean;
+  message: string;
+};
+
 // Entity User
 
 export type Role = "admin" | "advertiser" | "candidate";
@@ -21,3 +46,49 @@ export type CreateUser = {
 };
 
 export type UpdateUser = Partial<CreateUser>;
+
+// Entity Company
+
+export type Company = {
+  id: number;
+  name: string;
+  city: string;
+  state: string;
+  address: string;
+  foundedAt: string;
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type Companies = Company[];
+
+export type CreateCompany = {
+  name: string;
+  city: string;
+  state: string;
+  address: string;
+  foundedAt: string;
+  description: string;
+};
+
+export type UpdateCompany = Partial<CreateCompany>;
+
+// Entity Tecnology
+
+export type Tecnology = {
+  id: number;
+  tecName: string;
+  creatorsName: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type Tecnologies = Tecnology[];
+
+export type CreateTecnology = {
+  tecName: string;
+  creatorsName: string;
+};
+
+export type UpdateTecnology = Partial<CreateTecnology>;
