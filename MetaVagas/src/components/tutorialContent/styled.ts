@@ -10,7 +10,7 @@ const media1200to1919 = `
 export const ContentCard = styled.div`
     display: flex;
 
-    padding-top: 15rem;
+    padding-top: 20rem;
     padding-left: 21rem;
 
     ${media992to1199} {

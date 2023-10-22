@@ -10,7 +10,7 @@ const media1200to1919 = `
 
 export const InputCard = styled.div`
     width: 517px;
-    height: 595px;
+    height: 700px;
 
     box-shadow: 0px 15px 35px 0px #D0D0D033;
     border-radius: 16px;
@@ -59,10 +59,26 @@ export const TextRegister = styled.p`
     padding-left: 8rem;
 `
 
+export const CardEyeIcon = styled.button`
+    position: absolute;
+    right: 26rem;
+    bottom: 27rem;
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    ${media1200to1919} {
+        left: 0;
+        left: 73rem;
+        top: 23.6rem;
+    }
+`
+
 export const CardEyeConfirm = styled.button`
     position: absolute;
     right: 26rem;
-    bottom: 27.2rem;
+    bottom: 19.6rem;
     border: 0;
     background: transparent;
 
