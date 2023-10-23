@@ -92,3 +92,36 @@ export type CreateTecnology = {
 };
 
 export type UpdateTecnology = Partial<CreateTecnology>;
+
+// Entity Vacancy
+
+export type Vacancy = {
+  id: number;
+  vacancyRole: string;
+  wage: number;
+  location: string;
+  vacancyType: string;
+  vacancyDescription: string;
+  level: string;
+  companyId: number;
+  tecnologies: string[];
+  advertiserEmail: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type Vacancies = Vacancy[];
+
+export type CreateVacancy = {
+  vacancyRole: string;
+  wage: number;
+  location: string;
+  vacancyType: string;
+  vacancyDescription: string;
+  level: string;
+  companyId: number;
+  tecnologies: string[];
+  advertiserEmail: string;
+};
+
+export type UpdateVacancy = Partial<CreateVacancy>;
