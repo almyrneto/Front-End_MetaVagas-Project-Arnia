@@ -30,6 +30,10 @@ justify-content : center;
     .register{
         width : 480px;
         align-items : start;
+
+        .noShow{
+            display : none;
+        }
     }
     div{
         padding-top: 5%;
@@ -44,6 +48,9 @@ justify-content : center;
     }
     span{
         color : #FBB04D;
+    }
+    a{
+        text-decoration : none;
     }
 }
 `
