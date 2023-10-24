@@ -9,19 +9,19 @@ import { JobListings } from "../components/joblistings";
 import { SearchFilters } from "../components/searchFilters";
 
 export const MetaVagas = () => {
-  const [footer] = useState<"" | "noShow">(""); //Alterações -> setFooter
-  return (
-    <>
-      <ContainerDad>
-        <Header />
-        <Banner />
-        <ContainerSearch />
-      </ContainerDad>
-      <JobListings />
-      <SearchFilters />
-      <Footer className={footer} />
-    </>
-  );
-};
+    return (
+        <>
+            <ContainerDad>
+                <Header />
+                <Banner />
+                <ContainerSearch /> 
+            </ContainerDad>
+            <JobListings />
+            <SearchFilters/>
+            <Footer className =""/>
+        </>
+        
+    )
+}
 
 export default MetaVagas;

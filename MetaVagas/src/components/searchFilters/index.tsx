@@ -54,8 +54,8 @@ export const SearchFilters = () => {
             <S.Container>
                 <h1>Vagas de emprego em todo o Brasil</h1>
                 <div>
-                    <S.FilterCard selected={filter1} onClick={() => {findTechnologies("tech"); setFilter1(true); setFilter2(false); setFilter3(false) }}><ComputerIcon color={filter1 ? "#FBB04D" : "white"}/>Tecnologias</S.FilterCard>
-                    <S.FilterCard selected={filter2} onClick={() => {findTechnologies("local"); setFilter1(false); setFilter2(true); setFilter3(false) }}><MapPinLine color={filter2 ? "#FBB04D" : "white"}/>Cidades</S.FilterCard>
+                    <S.FilterCard selected={filter1} onClick={() => {findTechnologies("tech"); setFilter1(true); setFilter2(false); setFilter3(false) }}><ComputerIcon color={filter1 ? "#FBB04D" : "white"} size={24}/>Tecnologias</S.FilterCard>
+                    <S.FilterCard selected={filter2} onClick={() => {findTechnologies("local"); setFilter1(false); setFilter2(true); setFilter3(false) }}><MapPinLine color={filter2 ? "#FBB04D" : "white"} size={24}/>Cidades</S.FilterCard>
                     <S.FilterCard selected={filter3} onClick={() => {findTechnologies("role"); setFilter1(false); setFilter2(false); setFilter3(true) }}><RolesIcon color={filter3 ? "#FBB04D" : "white"}/>Cargos</S.FilterCard>
                 </div>
                 <div className="registerCard">

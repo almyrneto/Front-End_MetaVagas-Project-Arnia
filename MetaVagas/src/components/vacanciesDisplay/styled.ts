@@ -112,6 +112,7 @@ justify-content: space-between;
         border-radius: 16px;
         border: 1px solid #ECF1F4;
         padding : 24px;
+        margin-bottom : 30px;
 
         /
         background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
@@ -129,22 +130,37 @@ justify-content: space-between;
             /*Preto*/
             color: #4A4A68;
         }
+        .jobTitle{
+            display : flex;
+            justify-content: space-between;
+            margin-bottom : 5px;
+            >h4{
+                /*styleName: small 14px bold;*/
+                font-family: Poppins;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 20px;
+                letter-spacing: 0px;
+                text-align: right;
 
-        >h5{
-            /*styleName: small 14px bold;*/
+                >span{
+                    /*styleName: small 14px regular;*/
+                    font-weight: 400;
+                    /*Cinza*/
+                    color: #8C8CA1;
+                }
+            }
+        }
+        h5{
+            //styleName: small 14px regular;
             font-family: Poppins;
             font-size: 14px;
-            font-weight: 700;
+            font-weight: 400;
             line-height: 20px;
             letter-spacing: 0px;
-            text-align: right;
-
-            >span{
-                /*styleName: small 14px regular;*/
-                font-weight: 400;
-                /*Cinza*/
-                color: #8C8CA1;
-            }
+            text-align: left;
+            color: #4A4A68;
+            margin-bottom : 10px;
         }
 
         >p{
@@ -185,6 +201,29 @@ justify-content: space-between;
             text-align: left;
             /*Cinza*/
             color: #6950A1;
+        }
+        >.vacancyInfo{
+            display : flex;
+            align-items : center;
+            p{
+                //styleName: small 14px bold;
+                font-family: Poppins;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                letter-spacing: 0px;
+                text-align: left;
+                margin: 30px 30px 30px 2px;
+                span{
+                    //styleName: small 14px regular;
+                    font-family: Poppins;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 20px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }                         
+            }
         }
     }
 }`;
