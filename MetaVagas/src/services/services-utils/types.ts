@@ -47,6 +47,15 @@ export type CreateUser = {
 
 export type UpdateUser = Partial<CreateUser>;
 
+export type CurrentUser = {
+  user: number;
+  email: string;
+  role: string;
+  isActive: boolean;
+  iat: number;
+  exp: number;
+};
+
 // Entity Company
 
 export type Company = {

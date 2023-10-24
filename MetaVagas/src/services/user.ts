@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import api from "./config";
-import { UpdateUser, User, Users } from "./services-utils/types";
+import { CurrentUser, UpdateUser, User, Users } from "./services-utils/types";
 import { defaultErros } from "./services-utils/defaultErros";
 
 const EntityRoute = "/users";
@@ -60,15 +60,17 @@ export const GetOneUserService = async (
  * Returns the profile of the currently logged-in user.
  * @returns An object with the current user's profile.
  */
-export const ProfileUserService = async (): Promise<User | undefined> => {
+export const ProfileUserService = async (): Promise<
+  CurrentUser | undefined
+> => {
   const token = localStorage.getItem("token");
 
   if (!token) {
     throw new Error("Token not available");
   }
   try {
-    const response: AxiosResponse<User> = await api.get(
-      `${EntityRoute}/profile`,
+    const response: AxiosResponse<CurrentUser> = await api.get(
+      `${EntityRoute}/me/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}` ?? "",
