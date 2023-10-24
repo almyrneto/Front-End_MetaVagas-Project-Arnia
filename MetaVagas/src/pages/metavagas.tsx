@@ -9,7 +9,7 @@ import { JobListings } from "../components/joblistings";
 import { SearchFilters } from "../components/searchFilters";
 
 export const MetaVagas = () => {
-  const [footer, setFooter] = useState<"" | "noShow">("");
+  const [footer] = useState<"" | "noShow">(""); //Alterações -> setFooter
   return (
     <>
       <ContainerDad>

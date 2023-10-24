@@ -68,7 +68,7 @@ export const ProfileUserService = async (): Promise<User | undefined> => {
   }
   try {
     const response: AxiosResponse<User> = await api.get(
-      `${EntityRoute}/profile`,
+      `${EntityRoute}/me/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}` ?? "",
