@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+type TextActive = {
+    active?: boolean
+}
+
 const media1200to1919 = `
     @media (min-width: 1200px) and (max-width: 1919px)
 `;
@@ -148,4 +152,29 @@ export const IconSearch = styled.button`
         bottom: 72vh;
         left: 27vh;
     }
+`
+
+export const ContainerButton = styled.div`
+    margin-left: 21.5rem;
+    margin-top: 1vh;
+`
+
+export const ButtonVacancie = styled.button<TextActive>`
+    width: 88px;
+    height: 35px;
+
+    border-radius: 8px;
+    border: 1px solid ${({ active }) => active ? "#FFFFFF" : "#B2A1D9"};
+    gap: 8px;
+    color: ${({ active }) => active ? "#FFFFFF" : "#B2A1D9"};
+    background: ${({ active }) => active ? "#FBB04D" : "transparent"};
+
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    cursor: pointer;
+    text-align: center;
+
+    margin-right: 1rem;
 `

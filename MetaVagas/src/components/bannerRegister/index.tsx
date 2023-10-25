@@ -6,19 +6,33 @@ import UserIcon from "../../assets/icons/userIcon"
 import { ButtonLogin, Content, ContentIcon, ContentText, InputEmail, InputPass, StyledLink, TextParagraph, Title, TitleInput } from "../bannerLogin/styled"
 import { CardEyeIcon, CardEyeConfirm, InputCard, InputTitle, TextRegister } from "./styled"
 import EyeIconConfirm from "../../assets/icons/eyeIconConfirm"
-// import { CreateUserService } from "../../services/auth"
+import { CreateUserService } from "../../services/auth"
+import { useForm } from "react-hook-form"
+
+type submit = {
+    email: string;
+    name: string;
+    pass: string;
+    confirmPass: string;
+}
 
 export const BannerRegister = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
-    // const [formData, setFormData] = useState({
-    //     email: '',
-    //     name: '',
-    //     pass: '',
-    //     confirmPass: '',
-    // });
+    const [formData, setFormData] = useState({
+        email: '',
+        name: '',
+        pass: '',
+        confirmPass: '',
+    });
 
-    // const [formErrors, setFormErrors] = useState({})
+    const payload = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.pass,
+    }
+
+    const [formErrors, setFormErrors] = useState({})
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -28,22 +42,31 @@ export const BannerRegister = () => {
         setShowPasswordConfirm(!showPasswordConfirm);
     }
 
-    // const handleInputChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: value,
-    //     });
-    // };
+    const { register, handleSubmit } = useForm<submit>()
 
-    // const register = async () => {
-    //     try {
-    //         const Response = await CreateUserService({name, email, password})
-    //         localStorage.setItem("token2", Response!.token);
-    //     } catch (error) {
-    //         alert((error as any).message)
-    //     }
-    // }
+    const createUser = async () => {
+        try {
+            const isPasswordValid = ValidatePassword()
+            if (isPasswordValid) {
+                await CreateUserService(payload)
+            }
+        } catch (error) {
+            alert((error as any).message)
+        }
+    }
+
+    const ValidatePassword = () => {
+        if (formData.pass === formData.confirmPass) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    const handleInputChange = (event: any) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
     return (
         <Content>
@@ -60,31 +83,31 @@ export const BannerRegister = () => {
                 </ContentIcon>
             </ContentText>
             <InputCard>
-                <form>
+                <form onSubmit={handleSubmit(createUser)}>
                     <TitleInput>Faça seu cadastro</TitleInput>
                     <>
                         <InputTitle>Seu e-mail</InputTitle>
-                        <InputEmail type="email" placeholder="ana@gmail.com" />
+                        <InputEmail {...register("email")} type="email" placeholder="ana@gmail.com" onChange={handleInputChange} />
                     </>
                     <>
                         <InputTitle>Seu nome</InputTitle>
-                        <InputEmail type="text" placeholder="Ana Ester" />
+                        <InputEmail {...register("name")} type="text" placeholder="Ana Ester" onChange={handleInputChange} />
                     </>
                     <>
                         <InputTitle>Senha</InputTitle>
-                        <InputPass type={showPassword ? 'text' : 'password'} placeholder="************" />
-                        <CardEyeIcon onClick={togglePasswordVisibility}>
+                        <InputPass {...register("pass")} type={showPassword ? 'text' : 'password'} placeholder="************" onChange={handleInputChange} />
+                        <CardEyeIcon type="button" onClick={togglePasswordVisibility}>
                             <EyeIcon />
                         </CardEyeIcon>
                     </>
                     <>
                         <InputTitle>Confirmar senha</InputTitle>
-                        <InputPass type={showPasswordConfirm ? 'text' : 'password'} placeholder="************" />
-                        <CardEyeConfirm onClick={togglePasswordConfirmVisibility}>
+                        <InputPass {...register("confirmPass")} type={showPasswordConfirm ? 'text' : 'password'} placeholder="************" onChange={handleInputChange} />
+                        <CardEyeConfirm type="button" onClick={togglePasswordConfirmVisibility}>
                             <EyeIconConfirm />
                         </CardEyeConfirm>
                     </>
-                    <ButtonLogin>Cadastrar</ButtonLogin>
+                    <ButtonLogin type="submit">Cadastrar</ButtonLogin>
                     <TextRegister>
                         Ja é cadastrado?
                         <StyledLink to={"/login"}>
