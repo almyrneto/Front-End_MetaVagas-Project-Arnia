@@ -1,6 +1,6 @@
 import { BannerLogin } from "../components/bannerLogin";
 import { Header } from "../components/header";
-import { TutorialContent } from "../components/tutorialContent";
+import { TutorialContentLogin } from "../components/tutorialContent/indexLogin";
 
 
 
@@ -9,7 +9,7 @@ export const Login = () => {
         <>
            <Header />
            <BannerLogin />
-           <TutorialContent />
+           <TutorialContentLogin />
         </>
     )
 }

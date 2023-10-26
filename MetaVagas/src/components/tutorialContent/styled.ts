@@ -7,17 +7,23 @@ const media1200to1919 = `
     @media (min-width: 1200px) and (max-width: 1919px)
 `;
 
-export const ContentCard = styled.div`
-    display: flex;
+const media768to1366 = `
+    @media (min-width: 768px) and (max-width: 1366px)
+`;
 
+export const ContentCardRegister = styled.div`
+    display: flex;
     padding-top: 20rem;
     padding-left: 21rem;
+
+    ${media768to1366} {
+        margin-top: 20vh;
+    }
 
     ${media992to1199} {
         width: auto;
         padding: 0;
         padding-top: 10rem;
-        
     }
 
     ${media1200to1919} {
@@ -27,6 +33,30 @@ export const ContentCard = styled.div`
         padding-left: 9rem;
     }
 `
+
+export const ContentCardLogin = styled.div`
+    display: flex;
+    padding-top: 20rem;
+    padding-left: 21rem;
+
+    ${media768to1366} {
+        margin-top: -16vh;
+    }
+
+    ${media992to1199} {
+        width: auto;
+        padding: 0;
+        padding-top: 10rem;
+    }
+
+    ${media1200to1919} {
+        width: auto;
+        padding: 0;
+        padding-top: 12rem;
+        padding-left: 9rem;
+    }
+`
+
 
 export const Title = styled.h1`
     width: 248px;

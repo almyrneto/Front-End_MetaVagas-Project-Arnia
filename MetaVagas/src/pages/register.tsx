@@ -1,6 +1,6 @@
 import { BannerRegister } from "../components/bannerRegister"
 import { Header } from "../components/header"
-import { TutorialContent } from "../components/tutorialContent"
+import { TutorialContentRegister } from "../components/tutorialContent"
 
 export const Register = () => {
 
@@ -8,7 +8,7 @@ export const Register = () => {
         <>
             <Header />
             <BannerRegister />
-            <TutorialContent />
+            <TutorialContentRegister />
         </>
     )
 }

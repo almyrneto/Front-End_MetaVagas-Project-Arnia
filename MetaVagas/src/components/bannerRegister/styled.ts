@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const media768to1366 = `
+    @media (min-width: 768px) and (max-width: 1366px)
+`;
+
 const media992to1199 = `
     @media (min-width: 992px) and (max-width: 1199px)
 `;
@@ -17,6 +21,10 @@ export const InputCard = styled.div`
     background: #FFFFFF;
     margin-right: 22.3rem;
     margin-top: 2rem;
+
+    ${media768to1366} {
+       height: 745px;
+    }
 
     ${media992to1199} {
         width: 400px;
@@ -68,6 +76,11 @@ export const CardEyeIcon = styled.button`
 
     cursor: pointer;
 
+     ${media768to1366} {
+       margin-top: 24.5vh;
+       margin-left: 1.4vw;
+    }
+
     ${media1200to1919} {
         left: 0;
         left: 73rem;
@@ -84,9 +97,50 @@ export const CardEyeConfirm = styled.button`
 
     cursor: pointer;
 
+     ${media768to1366} {
+       margin-top: 28vh;
+       margin-left: 1.2vw;
+    }
+
     ${media1200to1919} {
         left: 0;
         left: 73.2rem;
         top: 31rem;
+    }
+`
+
+export const SpanMessage = styled.span`
+   margin-left: 2.5vw;
+   color: red;
+   font-family: 'Poppins';
+   font-weight: 500;
+   font-size: 13px;
+`
+
+export const ButtonRegister = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 56px;
+    border-radius: 8px;
+    background: #FBB04D;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24.57px;
+    color: #1A1033;
+    margin-top: 20px;
+    margin-left: 2.5vw;
+
+    ${media992to1199} {
+        width: 320px;
+    }
+
+    ${media1200to1919} {
+        width: 420px;
     }
 `
