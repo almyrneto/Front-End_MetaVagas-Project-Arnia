@@ -10,19 +10,17 @@ type props = {
    handleMyValue : (shouldPush: boolean, whereToUpdate: searchParams, whatValue: string) => void
 }
 
-function Checkbox({ content, state , stateType, handleMyValue}: props) {
-   const [checked, setChecked] = useState(state);
 
-   useEffect(() => {
-      //get de vagas
-     // offSwitch()
-     // setChecked(false)
-     console.log(state + "    " )
-  }, [state])
+function Checkbox({ content, state , stateType, handleMyValue}: props) {
+
+   const [checked, setChecked] = useState(state);
    function handleCheckboxChange() {
       setChecked(!checked)
       handleMyValue(!checked, stateType, content)
    }
+   useEffect(() => {
+      state === true ? handleMyValue(checked, stateType, content) : false;
+   })
    
    return (
       <S.CheckboxContainer

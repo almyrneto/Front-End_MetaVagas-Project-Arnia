@@ -19,8 +19,7 @@ export const MetaVagas = () => {
             <JobListings />
             <SearchFilters/>
             <Footer className =""/>
-        </>
-        
+        </>        
     )
 }
 

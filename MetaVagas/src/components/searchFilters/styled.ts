@@ -7,26 +7,61 @@ const Container = styled.div`
 display : flex;
 flex-wrap : wrap;
 gap : 8px;
-align-items: flex-end;
+align-items: baseline;
 justify-content : space-between;
 width : 100%;
 padding: 5% 10%;
 min-height : 783px;
 background: #1A1033;
 font-family: Poppins;
->div{
+
+div{
     display : flex;
     jusify-content : space-between;
+
+    .registerCard{
+        flex-direction : column;
+        background : white;
+        width : 270px;
+        height : 138px;
+        padding : 10px;
+        border-radius: 8px;
+        .characterIcon{
+            width : 63px;
+            height : 63px;
+            border-radius : 50%;
+            margin-top : -38px;
+            background : #6950A1;
+            display:flex;
+            justify-content : center;
+            align-items : center;
+            img{
+                height : 24px;
+                width : 24px;        
+                border-radius: 12px;
+            }
+        }
+    }
 }
 h1{
     color : #FBB04D;
     font-size : 32px;
+    margin-right : 10%;
+}
+.between{
+    justify-content : space-between;
+}
+.full_width{
+    width : 100%;
+    align-self : flex-start;
+}
+.card_selection{
+    flex-direction : column;
 }
 p{
     font-size : 16px;
     color : #1A1033;
 }
-
 >.card{
     display : flex;
     align-items : center;
@@ -43,30 +78,7 @@ p{
     a{
         text-decoration : none;
     }
-}
->.registerCard{
-    flex-direction : column;
-    background : white;
-    width : 270px;
-    height : 138px;
-    padding : 10px;
-    border-radius: 8px;
-    margin-left : 19%;
-    .characterIcon{
-        width : 63px;
-        height : 63px;
-        border-radius : 50%;
-        margin-top : -38px;
-        background : #6950A1;
-        display:flex;
-        justify-content : center;
-        align-items : center;
-        img{
-            height : 24px;
-            width : 24px;        
-            border-radius: 12px;
-        }
-    }
+    cursor : pointer;
 }
 `
 const FilterCard = styled.a`

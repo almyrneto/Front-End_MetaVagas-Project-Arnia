@@ -8,7 +8,7 @@ export const vacancies = [
         level : "junior",
         companyId : 1,
         advertiserId : 1,
-        technologies : ["nestJs", "Mongodb", "typescript", "postgres"]
+        technologies : ["nestJs", "Mongodb", "typescript", "postgres", "Python"]
     },
     {
         vacancyRole : "frontend",
@@ -19,7 +19,7 @@ export const vacancies = [
         level : "junior",
         companyId : 1,
         advertiserId : 1,
-        technologies : ["React", "Typescript", "Flux", "Rest"]
+        technologies : ["React", "typescript", "Flux", "Rest"]
     },
     {
         vacancyRole : "devops",

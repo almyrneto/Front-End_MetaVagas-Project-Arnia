@@ -106,6 +106,37 @@ justify-content: space-between;
     justify-content : space-between;
     max-width : 870px;
 
+    .grafic_box{
+        width: 420px;
+        height: 269px;
+        border-radius: 16px;
+        background: linear-gradient(0deg, #ECF1F4, #ECF1F4), linear-gradient(0deg, #F3F3F3, #F3F3F3);
+        border: 1px solid #ECF1F4;
+        padding : 24px 16px 16px 16px;
+        margin-bottom : 20px;
+
+        h3{
+            //styleName: small 14px regular;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0px;
+            text-align: left;
+            color : #000000;
+            margin-bottom : 16px;
+            span{
+                color : #6950A1
+            }
+        }
+
+        div{
+            width: 366px;
+            height: 177px;
+            border-radius: 4px, 4px, 0px, 0px;                    
+        }
+    }
+
     .vacancy_box{
         width: 100%;
         height: 301px;
