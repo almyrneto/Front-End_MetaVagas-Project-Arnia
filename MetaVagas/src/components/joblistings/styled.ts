@@ -22,6 +22,7 @@ export const Title = styled.p`
 
 export const ContainerJobListings = styled.div`
     margin-top: 12rem;
+    margin-bottom: 10rem;
     padding-left: 23rem;
 
     ${media992to1199} {

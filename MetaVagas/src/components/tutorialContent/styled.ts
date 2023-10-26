@@ -49,6 +49,7 @@ export const CardTuto = styled.div`
     background: #6950A1;
 
     margin-left: 3.2rem;
+    margin-bottom: 10rem;
 
     ${media992to1199} {
         width: auto;

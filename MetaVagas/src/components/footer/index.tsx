@@ -3,9 +3,20 @@ import { ButtonLogin, ButtonRegister } from "../header/styled.ts"
 import email from "../../assets/icons/email.svg"
 import local from "../../assets/icons/local.png"
 import phone from "../../assets/icons/telefone.svg"
+import { useNavigate } from "react-router-dom"
 
-type props = {className : "noShow" | ""}
-export const Footer = ({className} : props) => {
+type props = { className: "noShow" | "" }
+export const Footer = ({ className }: props) => {
+    const navigate = useNavigate();
+
+    const navigateLogin = () => {
+        navigate('/login')
+    }
+
+    const navigateRegister = () => {
+        navigate('/register')
+    }
+
     return (
         <S.Foot>
             <div>
@@ -20,8 +31,8 @@ export const Footer = ({className} : props) => {
                 </div>
                 <div className="register">
                     <div className={className}>
-                        <ButtonLogin>Entrar</ButtonLogin>
-                        <ButtonRegister>Cadastre-se gratuitamente</ButtonRegister>
+                        <ButtonLogin onClick={navigateLogin}>Entrar</ButtonLogin>
+                        <ButtonRegister onClick={navigateRegister}>Cadastre-se gratuitamente</ButtonRegister>
                     </div>
                 </div>
             </div>

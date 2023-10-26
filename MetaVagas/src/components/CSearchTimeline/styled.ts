@@ -10,7 +10,7 @@ const media1200to1919 = `
 
 export const Container = styled.div`
     width: 100%;
-    height: 288px;
+    height: 350px;
 
     background: #1A1033;
 `
@@ -177,4 +177,52 @@ export const ButtonVacancie = styled.button<TextActive>`
     text-align: center;
 
     margin-right: 1rem;
+`
+
+export const ContainerText = styled.div`
+    margin-top: 3rem;
+    margin-left: 21.5rem;
+    display: flex;
+    align-items: center;
+`
+
+export const Text = styled.p`
+    width: 660px;
+    height: 30px;
+
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30.08px;
+    color: #FFFFFF;
+`
+
+export const TextItalic = styled.span`
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+`
+
+export const ButtonSave = styled.button`
+    display: flex;
+    align-items: center;
+    width: 159px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background: #6950A1;
+    
+    color: #FFFFFF;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0px;
+    cursor: pointer;
+    padding-left: 10px;
 `
