@@ -1,19 +1,16 @@
 import { BannerLogin } from "../components/bannerLogin";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
-import { TutorialContent } from "../components/tutorialContent";
-
-
+import { TutorialContentLogin } from "../components/tutorialContent/indexLogin";
 
 export const Login = () => {
-    return (
-        <>
-            <Header />
-            <BannerLogin />
-            <TutorialContent />
-            <Footer className={""} />
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+      <BannerLogin />
+      <TutorialContentLogin />
+    </>
+  );
+};
 
 export default Login;

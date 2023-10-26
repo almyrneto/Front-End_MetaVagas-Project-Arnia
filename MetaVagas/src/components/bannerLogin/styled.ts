@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const media768to1366 = `
+    @media (min-width: 768px) and (max-width: 1366px)
+`;
+
 const media992to1199 = `
     @media (min-width: 992px) and (max-width: 1199px)
 `;

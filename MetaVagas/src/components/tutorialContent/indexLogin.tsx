@@ -1,10 +1,10 @@
 import HandIcon from "../../assets/icons/hand"
-import { CardTuto, ContentCardRegister, NumberCard, TextCard, Title, TitleCard } from "./styled"
+import { CardTuto, ContentCardLogin, NumberCard, TextCard, Title, TitleCard } from "./styled"
 
-export const TutorialContentRegister = () => {
+export const TutorialContentLogin = () => {
 
     return (
-        <ContentCardRegister>
+        <ContentCardLogin>
             <Title>
                 Cadastrar na Meta Vagas é simples <HandIcon />
             </Title>
@@ -23,7 +23,7 @@ export const TutorialContentRegister = () => {
                 <TitleCard>Receba Sugestões</TitleCard>
                 <TextCard>Encontre a vaga ideal para você. Use nossa busca eficiente para descobrir oportunidades!</TextCard>
             </CardTuto>
-        </ContentCardRegister>
+        </ContentCardLogin>
 
     )
 }
