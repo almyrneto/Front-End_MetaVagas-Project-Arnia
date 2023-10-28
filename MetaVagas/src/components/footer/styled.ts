@@ -49,9 +49,6 @@ justify-content : center;
     span{
         color : #FBB04D;
     }
-    a{
-        text-decoration : none;
-    }
 }
 `
 

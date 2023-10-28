@@ -14,9 +14,9 @@ const data = [
 function BarChartComponent() {
 return (
   <BarChart width={366} height={177} data={data}>
-    <XAxis dataKey="name" />
-    <YAxis />
-    <Bar dataKey="vacancies" fill="#8884d8" />
+    <XAxis dataKey="name"/>
+    <YAxis width={27} />
+    <Bar dataKey="vacancies" fill="#6950A1" width={20} radius={innerHeight/200} barSize={20}/>
   </BarChart>
 );
 }

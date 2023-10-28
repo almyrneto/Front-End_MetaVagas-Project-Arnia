@@ -33,6 +33,11 @@ export const VacanciesDisplay = () => {
     const [companySize, setCompanySize] = useState(['pequena', 'média', 'grande'])
     const [vacancyLevel, setVacancyLevel] = useState(['junior', 'pleno', 'senior'])
     const location = useLocation()
+    let locationMessage = ""
+    if(location.state){
+        locationMessage = location.state.message
+    }
+
 
     function updateSearch(shouldPush: boolean, whereToUpdate: searchParams, whatValue: string) {
         let aux = searchFilters;
@@ -108,7 +113,7 @@ export const VacanciesDisplay = () => {
                     <span>Tecnologia</span>
                     {techs.map((tech) => {
                         let techState = checked
-                        location.state.message === tech.techName.toLowerCase().trim() ? techState = true : techState = false
+                        locationMessage === tech.techName.toLowerCase().trim() ? techState = true : techState = false
                         return (
                             <Checkbox content={tech.techName} state={techState} key={tech.id} stateType="techsParam" handleMyValue={updateSearch} />
                         )
