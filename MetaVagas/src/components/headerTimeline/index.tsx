@@ -39,14 +39,10 @@ export const HeaderTimeline = () => {
 
     const navigate = useNavigate();
 
-    const navigateHomePage = () => {
-        navigate('/')
-    }
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const openMenu = () => {
-        setIsMenuOpen(true);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     }
 
     const closeMenu = () => {
@@ -54,15 +50,28 @@ export const HeaderTimeline = () => {
     }
 
     const logout = () => {
-        localStorage.removeIem('token');
+        localStorage.removeItem('token');
         closeMenu();
         navigate('/login');
+    }
+
+    const handleRedirect = () => {
+        const isAuthenticated = () => {
+            const token = localStorage.getItem("token")
+            return !!token;
+        };
+
+        if (isAuthenticated()) {
+            navigate('/metavagasLoggedin'); // Redireciona para a pagina logada da pagina
+        } else {
+            navigate('/metavagas'); // Redireciona para a pagina deslogada da pagina
+        }
     }
 
     return (
         <>
             <Container>
-                <ContentImg onClick={navigateHomePage}>
+                <ContentImg onClick={handleRedirect}>
                     <Metavagas />
                 </ContentImg>
                 <ContentName>
@@ -72,7 +81,7 @@ export const HeaderTimeline = () => {
                     <CardName>
                         <TextName>Almyr Freiman</TextName>
                     </CardName>
-                    <ButtonIcon onClick={openMenu}>
+                    <ButtonIcon onClick={toggleMenu}>
                         <ArrowDownIcon />
                     </ButtonIcon>
                     <UserMenuModal

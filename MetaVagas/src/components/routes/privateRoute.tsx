@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 
 
+
 export const PrivateRoute = ({ element }: { element: any }) => {
 
     const isAuthenticated = () => {
@@ -14,3 +15,4 @@ export const PrivateRoute = ({ element }: { element: any }) => {
         return <Navigate to="/login" />
     }
 }
+
