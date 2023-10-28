@@ -4,6 +4,7 @@ import email from "../../assets/icons/email.svg"
 import local from "../../assets/icons/local.png"
 import phone from "../../assets/icons/telefone.svg"
 import { useNavigate } from "react-router-dom"
+import Metavagas from "../../assets/icons/metavagas.tsx"
 
 type props = { className: "noShow" | "" }
 export const Footer = ({ className }: props) => {
@@ -21,7 +22,7 @@ export const Footer = ({ className }: props) => {
         <S.Foot>
             <div>
                 <div className="logo">
-                    <h1>META<span>VAGAS</span></h1>
+                    <Metavagas />
                 </div>
                 <div className="contact">
                     <p><span>Contato e Endereço</span></p>

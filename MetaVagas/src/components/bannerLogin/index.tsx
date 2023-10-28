@@ -44,7 +44,7 @@ export const BannerLogin = () => {
             const Response = await LoginService({ email, password });
             localStorage.setItem("token2", Response!.token);
 
-            navigate("/timeline");
+            navigate("/timeline", { state: { message: "" } });
         } catch (error) {
             alert((error as any).message);
         }

@@ -23,7 +23,7 @@ export const ContentCard = styled.div`
     ${media1200to1919} {
         width: auto;
         padding: 0;
-        padding-top: 12rem;
+        padding-top: 20rem;
         padding-left: 9rem;
     }
 `
