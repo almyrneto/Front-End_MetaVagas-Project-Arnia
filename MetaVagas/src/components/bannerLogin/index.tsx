@@ -46,14 +46,11 @@ export const BannerLogin = () => {
 
   const [removeLoader, setRemoveLoader] = useState(true)
 
-  const login: SubmitHandler<submitLogin> = async () => {
-    setRemoveLoader(false)
-    try {
-      const Response = await LoginService({ email, password });
-      localStorage.setItem("token2", Response!.token);
-      
-      setRemoveLoader(true)
-      navigate("/timeline");
+            navigate("/timeline", { state: { message: "" } });
+        } catch (error) {
+            alert((error as any).message);
+        }
+    };
 
     } catch (error) {
       setRemoveLoader(true)
