@@ -4,6 +4,7 @@ import MailIcon from "../../assets/icons/mailIcon";
 import TextLogin from "../../assets/icons/textLogin";
 import UserIcon from "../../assets/icons/userIcon";
 import {
+  BackgroundLoader,
   Content,
   ContentIcon,
   ContentText,
@@ -29,6 +30,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaRegister } from "../../utils/schemaRegister";
 import { useNavigate } from "react-router-dom";
+import Loader from "../loading/loader";
 
 export type submit = {
   email: string;
@@ -72,15 +74,20 @@ export const BannerRegister = () => {
   };
 
   const navigate = useNavigate();
+
+  const [removeLoader, setRemoveLoader] = useState(true)
   
   const handleCreateUser: SubmitHandler<submit> = async () => {
+    setRemoveLoader(false)
     try {
       const isPasswordValid = ValidatePassword();     
       if (isPasswordValid) {
         await CreateUserService(payload);
+        setRemoveLoader(true)
         navigate("/login");
       }
     } catch (error) {
+      setRemoveLoader(true)
       alert((error as any).message);
     }
   };
@@ -180,6 +187,11 @@ export const BannerRegister = () => {
           <StyledLink to={"/login"}>Faça o login</StyledLink>
         </TextRegister>
       </InputCard>
+      {!removeLoader && (
+      <BackgroundLoader>
+        <Loader />
+      </BackgroundLoader>
+    )}
     </Content>
   );
 };

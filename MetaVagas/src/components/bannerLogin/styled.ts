@@ -96,13 +96,17 @@ export const ContentIcon = styled.div`
 
 export const InputCard = styled.div`
     width: 517px;
-    height: 480px;
+    height: 500px;
 
     box-shadow: 0px 15px 35px 0px #D0D0D033;
     border-radius: 16px;
     background: #FFFFFF;
     margin-right: 22.3rem;
     margin-top: 2rem;
+
+    ${media768to1366} {
+        
+    }
 
     ${media992to1199} {
         width: 400px;
@@ -304,9 +308,36 @@ export const CardEyeIcon = styled.button`
 
     cursor: pointer;
 
+    ${media768to1366} {
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+
     ${media1200to1919} {
         left: 0;
         left: 73rem;
         top: 23.6rem;
     }
+`
+
+export const BackgroundLoader = styled.div`
+position: fixed;
+background: rgba(0, 0, 0, 0.5);
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+`
+
+export const ContainerLoader = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+
+export const LoaderStyle = styled.img`
+width: 350px;
+height: 350px;
 `

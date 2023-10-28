@@ -40,7 +40,7 @@ export const ContentCardLogin = styled.div`
     padding-left: 21rem;
 
     ${media768to1366} {
-        margin-top: -16vh;
+        margin-top: -17.5vh;
     }
 
     ${media992to1199} {
