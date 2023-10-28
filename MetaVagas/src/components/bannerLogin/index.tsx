@@ -46,12 +46,13 @@ export const BannerLogin = () => {
 
   const [removeLoader, setRemoveLoader] = useState(true)
 
-            navigate("/timeline", { state: { message: "" } });
-        } catch (error) {
-            alert((error as any).message);
-        }
-    };
+  const login: SubmitHandler<submitLogin> = async () => {
+    try {
+      const Response = await LoginService({ email, password });
+      localStorage.setItem("token2", Response!.token);
 
+      setRemoveLoader(true);
+      navigate("/timeline", { state: { message: "" } });
     } catch (error) {
       setRemoveLoader(true)
       alert((error as any).message);
@@ -121,10 +122,10 @@ export const BannerLogin = () => {
         </TextRegister>
       </InputCard>
       {!removeLoader && (
-      <BackgroundLoader>
-        <Loader />
-      </BackgroundLoader>
-    )}
+        <BackgroundLoader>
+          <Loader />
+        </BackgroundLoader>
+      )}
     </Content>
   );
-};
+}

@@ -119,7 +119,7 @@ export type Vacancy = {
   updatedAt: Date;
 };
 
-export type Vacancies = Vacancy[];
+export type Vacancies = { vacancies: Vacancy[], page: number, pageSize: number, quantity: number };
 
 export type CreateVacancy = {
   vacancyRole: string;

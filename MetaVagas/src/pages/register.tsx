@@ -9,6 +9,7 @@ export const Register = () => {
       <Header />
       <BannerRegister />
       <TutorialContentRegister />
+      <Footer className={""} />
     </>
   );
 };

@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import { LineHeader } from "../header/styled"
 import Metavagas from "../../assets/icons/metavagas";
-import { ContentImg, Container, CardName, CardShortName, ContentName, TextName, TextShortName } from "./styled";
+import { ContentImg, Container, CardName, CardShortName, ContentName, TextName, TextShortName, ButtonIcon } from "./styled";
 import ArrowDownIcon from "../../assets/icons/arrowDown";
+import { useState } from "react";
+import { UserMenuModal } from "../modal/menuModal";
 // import { useEffect, useState } from "react";
 // import { User } from "../../services/services-utils/types";
 // import { GetOneUserService } from "../../services/user";
@@ -41,6 +43,22 @@ export const HeaderTimeline = () => {
         navigate('/')
     }
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const openMenu = () => {
+        setIsMenuOpen(true);
+    }
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    }
+
+    const logout = () => {
+        localStorage.removeIem('token');
+        closeMenu();
+        navigate('/login');
+    }
+
     return (
         <>
             <Container>
@@ -54,7 +72,14 @@ export const HeaderTimeline = () => {
                     <CardName>
                         <TextName>Almyr Freiman</TextName>
                     </CardName>
-                    <ArrowDownIcon />
+                    <ButtonIcon onClick={openMenu}>
+                        <ArrowDownIcon />
+                    </ButtonIcon>
+                    <UserMenuModal
+                        isOpen={isMenuOpen}
+                        onRequestClose={closeMenu}
+                        onLogout={logout}
+                    />
                 </ContentName>
             </Container>
             <LineHeader />
