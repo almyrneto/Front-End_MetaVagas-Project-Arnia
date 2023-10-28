@@ -95,3 +95,9 @@ export const TextName = styled.p`
 export const CardIcon = styled.div`
     
 `
+
+export const ButtonIcon = styled.button`
+    border: none;
+    background: transparent;
+    cursor: pointer;
+`

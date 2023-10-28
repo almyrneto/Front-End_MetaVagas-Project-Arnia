@@ -8,7 +8,7 @@ import { GetAllVacanciesService } from "../../services/vacancy";
 
 export const JobListings = () => {
     const navigate = useNavigate();
-    const [vacancie, setVacancie] = useState<Vacancies | undefined>(undefined)
+    const [vacancieArray, setVacancie] = useState<Vacancies | undefined>(undefined)
 
     const navigateRegister = () => {
         navigate('/register')
@@ -17,7 +17,6 @@ export const JobListings = () => {
     useEffect(() => {
         async function fetchData() {
             const data = await GetAllVacanciesService();
-            console.log("Dados da API:", data);
 
             setVacancie(data);
         }
@@ -25,18 +24,19 @@ export const JobListings = () => {
         fetchData();
     }, []);
 
-    if (!vacancie) {
+    if (!vacancieArray) {
         return <p>Carregando...</p>
     }
+    { console.log(vacancieArray); }
 
     return (
         <ContainerJobListings>
             <Title>Vagas mais recentes</Title>
             <Grid>
-                {vacancie.map((vacancie) => (
+                {vacancieArray.vacancies.map((vacancie) => (
                     <CardJobListings key={vacancie.id}>
                         <TitleCard>
-                            {vacancie.vacancyDescription}
+                            {vacancie.vacancyRole}
                         </TitleCard>
                         <ContentCard>
                             <ContentIcon>
@@ -48,7 +48,7 @@ export const JobListings = () => {
                             <ContentIcon>
                                 <PcIcon />
                             </ContentIcon>
-                            Tecnologia: <b>{vacancie.tecnologies}</b>
+                            Tecnologia: <b>{vacancie.tecnologies[0]}</b>
                         </ContentTechnology>
                         <DetailsPlus>
                             Ver mais detalhes
