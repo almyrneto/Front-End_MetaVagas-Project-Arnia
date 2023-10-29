@@ -97,7 +97,13 @@ export const GetAllVacanciesService = async (
   type?: string,
   local?: string,
   description?: string
-): Promise<Vacancies | undefined> => {
+): Promise<Vacancies> => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    throw new Error("Token not available");
+  }
+
   const params: { [key: string]: any } = {
     page,
     limit,
@@ -122,6 +128,13 @@ export const GetAllVacanciesService = async (
     return response.data;
   } catch (error) {
     defaultErros(error);
+
+    return {
+      vacancies: [],
+      page: 0,
+      pageSize: 0,
+      quantity: 0,
+    };
   }
 };
 

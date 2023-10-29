@@ -70,7 +70,7 @@ export const TextRegister = styled.p`
 export const CardEyeIcon = styled.button`
     position: absolute;
     right: 26rem;
-    bottom: 27rem;
+    bottom: 24.5rem;
     border: 0;
     background: transparent;
 
@@ -91,7 +91,7 @@ export const CardEyeIcon = styled.button`
 export const CardEyeConfirm = styled.button`
     position: absolute;
     right: 26rem;
-    bottom: 19.6rem;
+    bottom: 16rem;
     border: 0;
     background: transparent;
 
