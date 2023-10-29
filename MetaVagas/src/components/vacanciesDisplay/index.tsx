@@ -22,11 +22,13 @@ type searchFilter = {
 
 type searchParams = "techsParam" | "vacancyType" | "workType" | "companySize" | "vacancyLevel"
 
-export const VacanciesDisplay = () => {
+type props = {logged : boolean}
+export const VacanciesDisplay = ({logged} : props) => {
     const [checked, setChecked] = useState<boolean>(false)
     const [searchFilters, setSearchFilters] = useState<searchFilter>({
         techsParam: [], vacancyType: [], workType: [], companySize: [], vacancyLevel: [], maxValue: 100000, minValue: 0
     })
+    const [isLogged, setIsLogged] = useState<boolean>(false)
     const [techs, setTechs] = useState(technologies)
     const [vacanciesType, setVacanciesType] = useState(['remoto', 'presencial', 'híbrido'])
     const [workType, setWorkType] = useState(['clt', 'pj'])
@@ -84,8 +86,18 @@ export const VacanciesDisplay = () => {
     }
 
     useEffect(() => {
+        if(technologies.length > 9){
+            let aux = [...technologies]
+            setTechs(aux.slice(aux.length-8))
+        }
+        else{
+            setTechs(technologies)
+        }
+        setIsLogged(logged)
+    },[])
+    useEffect(() => {
         setChecked(false)
-        setTechs(technologies)
+        //setTechs(technologies)
         setVacanciesType(['remoto', 'presencial', 'híbrido'])
         setCompanySize(['pequena', 'média', 'grande'])
         setVacancyLevel(['junior', 'pleno', 'senior'])
@@ -102,12 +114,13 @@ export const VacanciesDisplay = () => {
             techsParam: [], vacancyType: [], workType: [], companySize: [], vacancyLevel: [], minValue: 0, maxValue: 100000
         })
     }
+    console.log(logged)
 
     return (
         <S.Container>
             <h1>VAGAS EM <span>REACT</span></h1>
             <p>{vacancies.length} Vagas em React</p>
-            <S.Display>
+            <S.Display checked logged={isLogged}>
                 <div className="filters">
                     <div className="title"><h3>Filtre sua busca</h3><a onClick={() => { offSwitch(); }}>limpar</a></div>
                     <span>Tecnologia</span>
