@@ -144,3 +144,6 @@ export const ButtonRegister = styled.button`
         width: 420px;
     }
 `
+
+export const P = styled.p`
+`
