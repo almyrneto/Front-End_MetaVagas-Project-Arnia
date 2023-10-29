@@ -57,3 +57,7 @@ $ npm run dev
 Para o deploy foi utilizado a plataforma [Vercel:](https://vercel.com/) https://vercel.com/
 
 [URL BASE:](https://meta-vagas-frontend.vercel.app/) https://meta-vagas-frontend.vercel.app/
+
+## Documentação do projeto
+
+([https://meta-vagas-frontend.vercel.app/](https://metavagasbackend-production.up.railway.app/v1/docs)
