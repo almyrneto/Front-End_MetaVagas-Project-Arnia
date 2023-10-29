@@ -5,6 +5,7 @@ import {
   Vacancy,
   CreateVacancy,
   UpdateVacancy,
+  GraphicsVacancy,
 } from "./services-utils/types";
 import api from "./config";
 
@@ -97,12 +98,6 @@ export const GetAllVacanciesService = async (
   local?: string,
   description?: string
 ): Promise<Vacancies | undefined> => {
-  const token = localStorage.getItem("token");
-
-  if (!token) {
-    throw new Error("Token not available");
-  }
-
   const params: { [key: string]: any } = {
     page,
     limit,
@@ -121,9 +116,7 @@ export const GetAllVacanciesService = async (
 
   try {
     const response: AxiosResponse<Vacancies> = await api.get(EntityRoute, {
-      headers: {
-        Authorization: `Bearer ${token}` ?? "",
-      },
+      headers: {},
       params,
     });
     return response.data;
@@ -201,6 +194,24 @@ export const DeleteVacancyService = async (
     if (response.status === 200) {
       return true;
     }
+  } catch (error) {
+    defaultErros(error);
+  }
+};
+
+/**
+ * Retrieves graphics data for vacancies.
+ * @returns The graphics data for vacancies.
+ */
+export const GetDataGraphicsVacanciesService = async (): Promise<
+  GraphicsVacancy | undefined
+> => {
+  try {
+    const response: AxiosResponse<GraphicsVacancy> = await api.get(
+      `${EntityRoute}/all/graphics`
+    );
+
+    return response.data;
   } catch (error) {
     defaultErros(error);
   }

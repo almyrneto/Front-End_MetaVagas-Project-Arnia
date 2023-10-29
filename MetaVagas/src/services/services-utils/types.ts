@@ -48,12 +48,13 @@ export type CreateUser = {
 export type UpdateUser = Partial<CreateUser>;
 
 export type CurrentUser = {
-  user: number;
+  id: number;
+  name: string;
   email: string;
   role: string;
   isActive: boolean;
-  iat: number;
-  exp: number;
+  createdAt: string;
+  updatedAt: string;
 };
 
 // Entity Company
@@ -119,7 +120,12 @@ export type Vacancy = {
   updatedAt: Date;
 };
 
-export type Vacancies = { vacancies: Vacancy[], page: number, pageSize: number, quantity: number };
+export type Vacancies = {
+  vacancies: Vacancy[];
+  page: number;
+  pageSize: number;
+  quantity: number;
+};
 
 export type CreateVacancy = {
   vacancyRole: string;
@@ -134,3 +140,10 @@ export type CreateVacancy = {
 };
 
 export type UpdateVacancy = Partial<CreateVacancy>;
+
+export type VacancyTecnologyQuantity = {
+  name: string;
+  vacancies: number;
+};
+
+export type GraphicsVacancy = VacancyTecnologyQuantity[];
