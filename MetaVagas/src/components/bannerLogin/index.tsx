@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"; //Alterações -> Link
+import { useNavigate } from "react-router-dom";
 import MailIcon from "../../assets/icons/mailIcon";
 import TextLogin from "../../assets/icons/textLogin";
 import UserIcon from "../../assets/icons/userIcon";
@@ -25,7 +25,7 @@ import { LoginService } from "../../services/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaLogin } from "../../utils/schemaLogin";
-import { SpanMessage } from "../bannerRegister/styled";
+import { P, SpanMessage } from "../bannerRegister/styled";
 import Loader from "../loading/loader";
 
 type submitLogin = {
@@ -44,9 +44,10 @@ export const BannerLogin = () => {
 
   const navigate = useNavigate();
 
-  const [removeLoader, setRemoveLoader] = useState(true)
+  const [removeLoader, setRemoveLoader] = useState(true);
 
   const login: SubmitHandler<submitLogin> = async () => {
+    setRemoveLoader(false);
     try {
       const Response = await LoginService({ email, password });
       localStorage.setItem("token2", Response!.token);
@@ -54,7 +55,7 @@ export const BannerLogin = () => {
       setRemoveLoader(true);
       navigate("/timeline", { state: { message: "" } });
     } catch (error) {
-      setRemoveLoader(true)
+      setRemoveLoader(true);
       alert((error as any).message);
     }
   };
@@ -96,7 +97,7 @@ export const BannerLogin = () => {
               onChange={(event) => setEmail(event.target.value)}
             />
           </>
-          <br></br>
+          <P></P>
           <SpanMessage>{errors.email?.message}</SpanMessage>
           <>
             <InputTitle>Senha*</InputTitle>
@@ -111,9 +112,9 @@ export const BannerLogin = () => {
               <EyeIcon />
             </CardEyeIcon>
           </>
-          <br></br>
+          <P></P>
           <SpanMessage>{errors.password?.message}</SpanMessage>
-          <p></p>
+          <P></P>
           <ButtonLogin type="submit">Entrar</ButtonLogin>
         </form>
         <TextRegister>
@@ -128,4 +129,4 @@ export const BannerLogin = () => {
       )}
     </Content>
   );
-}
+};
