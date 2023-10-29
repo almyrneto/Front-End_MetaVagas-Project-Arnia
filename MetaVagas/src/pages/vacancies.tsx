@@ -1,6 +1,6 @@
 import { CSearchTimeline } from "../components/CSearchTimeline"
 import { Footer } from "../components/footer"
-import { HeaderTimeline } from "../components/headerTimeline"
+import { Header } from "../components/header"
 import { VacanciesDisplay } from "../components/vacanciesDisplay"
 
 
@@ -9,9 +9,9 @@ export const VacanciesPage = () => {
 
     return (
         <>
-            <HeaderTimeline />
+            <Header />
             <CSearchTimeline />
-            <VacanciesDisplay logged={false}/>
+            <VacanciesDisplay logged={false} />
             <Footer className={""} />
         </>
     )

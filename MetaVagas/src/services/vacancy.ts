@@ -229,3 +229,42 @@ export const GetDataGraphicsVacanciesService = async (): Promise<
     defaultErros(error);
   }
 };
+
+export const GetPublicVacanciesService = async (
+  page?: number,
+  limit?: number,
+  tech?: string,
+  role?: string,
+  wageMax?: string,
+  wageMin?: string,
+  type?: string,
+  local?: string,
+  description?: string
+): Promise<Vacancies | undefined> => {
+  try {
+    const params: { [key: string]: any } = {
+      page,
+      limit,
+      tech,
+      role,
+      wageMax,
+      wageMin,
+      type,
+      local,
+      description,
+    };
+
+    Object.keys(params).forEach(
+      (key) => params[key] === undefined && delete params[key]
+    );
+
+    const response: AxiosResponse<Vacancies> = await api.get(EntityRoute, {
+      params,
+    });
+
+    return response.data;
+  } catch (error) {
+    defaultErros(error);
+  }
+};
+

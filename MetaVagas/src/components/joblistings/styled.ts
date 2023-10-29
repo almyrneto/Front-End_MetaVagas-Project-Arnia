@@ -126,6 +126,7 @@ export const ContentIcon = styled.div`
 `
 
 export const DetailsPlus = styled.p`
+    display: flex;
     width: 200px;
     height: 20px;
 

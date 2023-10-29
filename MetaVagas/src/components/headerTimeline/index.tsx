@@ -15,35 +15,10 @@ import ArrowDownIcon from "../../assets/icons/arrowDown";
 import { useEffect, useState } from "react";
 import { UserMenuModal } from "../modal/menuModal";
 import { ProfileUserService } from "../../services/user";
-// import { useEffect, useState } from "react";
-// import { User } from "../../services/services-utils/types";
-// import { GetOneUserService } from "../../services/user";
+
 
 export const HeaderTimeline = () => {
-  // const [data, setData] = useState<User>()
-  // const [loading, setLoading] = useState(true)
 
-  // useEffect(() => {
-  //     const getUser = async () => {
-  //         setLoading(true)
-  //         try {
-  //             await GetOneUserService()
-  //             setData(data)
-  //             setLoading(false)
-  //         } catch (error) {
-  //             alert('ocorreu um erro no servidor')
-  //             setLoading(false)
-  //         }
-  //     }
-  //     getUser()
-  // }, [])
-
-  // if (loading) {
-  //     return <p>carregando</p>
-  // }
-  // if (!data) {
-  //     return <p>ocorreu um erro, tente mais tarde!</p>
-  // }
 
   const [letters, setLetters] = useState<string | undefined>("");
   const [username, setUsername] = useState<string | undefined>("");
@@ -63,7 +38,7 @@ export const HeaderTimeline = () => {
   const logout = () => {
     localStorage.removeItem("token");
     closeMenu();
-    navigate("/login");
+    navigate("/");
   };
 
   const handleRedirect = () => {
@@ -83,13 +58,19 @@ export const HeaderTimeline = () => {
     try {
       const loggedUser = await ProfileUserService();
       const name = loggedUser?.name.toUpperCase();
-      const [firstName, lastName] = name?.split(" ");
 
-      if (!firstName || !lastName) {
-        return setLetters(firstName[0]);
+      if (!name) {
+        setLetters("");
+        return;
       }
 
-      setLetters(firstName[0] + lastName[0]);
+      const nameParts = name.toUpperCase().split(" ");
+
+      if (nameParts.length === 1) {
+        setLetters(nameParts[0][0]);
+      } else if (nameParts.length >= 2) {
+        setLetters(nameParts[0][0] + nameParts[1][0])
+      }
     } catch (error) {
       console.log(error);
     }
