@@ -48,7 +48,7 @@ export const JobListings = () => {
                             <ContentIcon>
                                 <PcIcon />
                             </ContentIcon>
-                            Tecnologia: <b>{vacancie.tecnologies[0]}</b>
+                            {/* Tecnologia: <b>{vacancie.tecnologies[0]}</b> */}
                         </ContentTechnology>
                         <DetailsPlus>
                             Ver mais detalhes

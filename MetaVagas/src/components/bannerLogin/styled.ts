@@ -146,7 +146,7 @@ export const TitleInput = styled.p`
 `
 
 export const InputTitle = styled.p`
-    width: 160px;
+    width: 180px;
     height: 24px;
 
     font-family: 'Poppins';
@@ -302,7 +302,7 @@ export const StyledLink = styled(Link)`
 export const CardEyeIcon = styled.button`
     position: absolute;
     right: 26rem;
-    bottom: 34.5rem;
+    bottom: 33.5rem;
     border: 0;
     background: transparent;
 
