@@ -60,4 +60,4 @@ Para o deploy foi utilizado a plataforma [Vercel:](https://vercel.com/) https://
 
 ## Documentação do projeto
 
-([https://meta-vagas-frontend.vercel.app/](https://metavagasbackend-production.up.railway.app/v1/docs)
+[https://meta-vagas-frontend.vercel.app/](https://metavagasbackend-production.up.railway.app/v1/docs)
