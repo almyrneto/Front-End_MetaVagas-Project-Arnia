@@ -15,7 +15,8 @@ import {
 } from "./styled";
 import { useState, useEffect } from "react";
 import { Vacancies } from "../../services/services-utils/types";
-import { GetAllVacanciesService } from "../../services/vacancy";
+import { GetPublicVacanciesService } from "../../services/vacancy";
+import IconArrowRight from "../../assets/icons/arrowRight";
 
 export const JobListings = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export const JobListings = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await GetAllVacanciesService();
+      const data = await GetPublicVacanciesService();
 
       setVacancie(data);
     }
@@ -44,6 +45,22 @@ export const JobListings = () => {
     console.log(vacancieArray);
   }
 
+  const handleRedirect = () => {
+    const isAuthenticated = () => {
+      const token = localStorage.getItem("token");
+      return !!token;
+    }
+
+    if (isAuthenticated()) {
+      navigate("/timeline");
+    } else {
+      navigate("/vacancies")
+    }
+
+
+  }
+
+
   return (
     <ContainerJobListings>
       <Title>Vagas mais recentes</Title>
@@ -57,13 +74,17 @@ export const JobListings = () => {
               </ContentIcon>
               Localização: {vacancie.location}
             </ContentCard>
+
             <ContentTechnology>
               <ContentIcon>
                 <PcIcon />
               </ContentIcon>
-              {/* Tecnologia: <b>{vacancie.tecnologies[0]}</b> */}
+              Tecnologia:
             </ContentTechnology>
-            <DetailsPlus>Ver mais detalhes</DetailsPlus>
+            <DetailsPlus onClick={handleRedirect}>
+              Ver mais detalhes
+              <IconArrowRight />
+            </DetailsPlus>
           </CardJobListings>
         ))}
       </Grid>

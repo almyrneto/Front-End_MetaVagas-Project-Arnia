@@ -1,7 +1,11 @@
 import { MetaVagas } from "../../pages/metavagas";
 
+
+
 function App() {
-    return <MetaVagas />
+    return (
+        <MetaVagas />
+    )
 }
 
 export default App

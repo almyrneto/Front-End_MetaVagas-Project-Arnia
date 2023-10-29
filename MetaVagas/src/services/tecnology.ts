@@ -85,11 +85,6 @@ export const GetAllTecnologiesService = async (
   page?: number,
   size?: number
 ): Promise<Tecnologies | undefined> => {
-  const token = localStorage.getItem("token");
-
-  if (!token) {
-    throw new Error("Token not available");
-  }
 
   const params: { [key: string]: any } = {
     name,
@@ -104,7 +99,7 @@ export const GetAllTecnologiesService = async (
   try {
     const response: AxiosResponse<Tecnologies> = await api.get(EntityRoute, {
       headers: {
-        Authorization: `Bearer ${token}` ?? "",
+
       },
       params,
     });
