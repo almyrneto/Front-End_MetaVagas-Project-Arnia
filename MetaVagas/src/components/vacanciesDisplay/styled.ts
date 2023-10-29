@@ -25,14 +25,14 @@ p{
 const Display = styled.div`
 display : flex;
 justify-content: space-between;
+gap : 10px;
+max-width : 1400px;
 
 .filters{
     /* general */
     padding : 20px;
     width: 270px;
     height: 1115px;
-    top: 457px;
-    left: 135px;
     border-radius: 16px;
     border: 1px;
 
@@ -104,16 +104,20 @@ justify-content: space-between;
     display : flex;
     flex-wrap : wrap;
     justify-content : space-between;
-    max-width : 870px;
+    width : 900px;
 
     .grafic_box{
-        width: 420px;
+        text-align : left;
+        min-width : 380px;
+        width: 49%;
         height: 269px;
         border-radius: 16px;
         background: linear-gradient(0deg, #ECF1F4, #ECF1F4), linear-gradient(0deg, #F3F3F3, #F3F3F3);
         border: 1px solid #ECF1F4;
         padding : 24px 16px 16px 16px;
         margin-bottom : 20px;
+        filter : blur(${({ logged }: props) => logged ? 0 : `0.2rem`});
+        
 
         h3{
             //styleName: small 14px regular;
@@ -192,6 +196,7 @@ justify-content: space-between;
             text-align: left;
             color: #4A4A68;
             margin-bottom : 10px;
+            filter : blur(${({ logged }: props) => logged ? 0 : `0.2rem`});
         }
 
         >p{
@@ -236,6 +241,7 @@ justify-content: space-between;
         >.vacancyInfo{
             display : flex;
             align-items : center;
+            filter : blur(${({ logged }: props) => logged ? 0 : `0.2rem`});
             p{
                 //styleName: small 14px bold;
                 font-family: Poppins;
@@ -267,7 +273,7 @@ const StyledCheckbox = styled.label`
    justify-content: center;
    align-items: center;
 `;
-type props = { checked: boolean }
+type props = { checked: boolean, logged : boolean }
 const CheckboxContainer = styled.div`
    width: 120px;
    height: 35px;

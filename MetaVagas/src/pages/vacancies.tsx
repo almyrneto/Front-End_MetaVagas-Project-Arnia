@@ -5,14 +5,14 @@ import { VacanciesDisplay } from "../components/vacanciesDisplay"
 
 
 
-export const Timeline = () => {
+export const VacanciesPage = () => {
 
     return (
         <>
             <HeaderTimeline />
             <CSearchTimeline />
-            <VacanciesDisplay logged={true}/>
-            <Footer className={"noShow"} />
+            <VacanciesDisplay logged={false}/>
+            <Footer className={""} />
         </>
     )
 }
