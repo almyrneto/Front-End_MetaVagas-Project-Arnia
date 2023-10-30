@@ -1,12 +1,12 @@
-# Projeto-Meta_Vagas_Frontend
+# Meta Vagas - Frontend
 
-##Equipe:
+## Equipe:
 
-[@almyrneto:](https://github.com/almyrneto) | [@CaioSjc:](https://github.com/CaioSjc) | [@COFerr:](https://github.com/COFerr) | [@LadyJessie19:](https://github.com/LadyJessie19)
+[@almyrneto](https://github.com/almyrneto) | [@CaioSjc](https://github.com/CaioSjc) | [@COFerr](https://github.com/COFerr) | [@LadyJessie19](https://github.com/LadyJessie19)
 --- | --- | --- | ---
 ![image](https://github.com/LadyJessie19/meta_vagas_backend/assets/115433314/17ea390d-4d60-481b-9fcf-2af0eed32306) | ![image](https://github.com/LadyJessie19/meta_vagas_backend/assets/115433314/19e8eb12-ff88-4b12-a81c-0c96c834d229) | ![image](https://github.com/LadyJessie19/meta_vagas_backend/assets/115433314/91c19a99-f6d8-4acc-b81d-fd5ade593a93) | ![image](https://github.com/LadyJessie19/meta_vagas_backend/assets/115433314/c1675bcc-76bb-4378-a420-23afb278eca7)
 
-##Descrição
+## Descrição
 
 Este repositório foi feito como projeto final do módulo 4 da Arnia, escola de progamação da qual fazemos parte, com intuito de adquirirmos mais experiência na área, e como um desafio sobre os conteúdos dos quais foram lecionados em sala de aula.
 
@@ -14,7 +14,7 @@ Nosso objetivo com este projeto é desenvolver uma plataforma online de vagas de
 
 A aplicação promove a conexão direta entre empresas e candidatos qualificados, simplificando o processo de contratação e busca por empregos.
 
-##Tecnologias
+## Tecnologias
 
 - React: Este projeto foi desenvolvido utilizando a biblioteca React, que proporcionou uma base sólida para a criação de interfaces de usuário dinâmicas e interativas.
 
@@ -34,30 +34,36 @@ A aplicação promove a conexão direta entre empresas e candidatos qualificados
 
 - Axios: Para efetuar requisições HTTP de forma eficiente, utilizamos a biblioteca Axios, simplificando a comunicação com servidores e a manipulação de dados remotos.
 
-##Ferramenta de Planejamento Utilizada:
+## Ferramenta de Planejamento Utilizada:
 
-[Trello:](https://trello.com/invite/metavagasmodulo4/ATTI9032a0682b2fa8aec1f709959dceea6bE44E8A7D) https://trello.com/invite/metavagasmodulo4/ATTI9032a0682b2fa8aec1f709959dceea6bE44E8A7D
+[Trello](https://trello.com/invite/metavagasmodulo4/ATTI9032a0682b2fa8aec1f709959dceea6bE44E8A7D)
 
+## Para rodar o projeto
 
-##Instale as dependências do projeto !!!
+1. Clone o repositório:
 
 ```bash
-yarn ou npm install
+$ git clone git@github.com:almyrneto/Front-End_MetaVagas-Project-Arnia.git
 ```
 
-##Rodando o projeto
+2. Instale as dependências do npm:
 
 ```bash
-# development
+$ yarn ou npm install
+```
+
+3. Rode o projeto:
+
+```bash
 $ npm run dev
 ```
 
-##URL do Deploy
+## URL do Deploy
 
-Para o deploy foi utilizado a plataforma [Vercel:](https://vercel.com/) https://vercel.com/
+Para o deploy foi utilizado a plataforma [Vercel](https://vercel.com/)
 
-[URL BASE:](https://meta-vagas-frontend.vercel.app/) https://meta-vagas-frontend.vercel.app/
+[URL BASE](https://meta-vagas-frontend.vercel.app/)
 
 ## Documentação do projeto
 
-[https://meta-vagas-frontend.vercel.app/](https://metavagasbackend-production.up.railway.app/v1/docs)
+[Swagger](https://meta-vagas-frontend.vercel.app/v1/docs)
