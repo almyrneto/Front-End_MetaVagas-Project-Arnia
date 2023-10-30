@@ -91,8 +91,8 @@ export const GetAllVacanciesService = async (
   limit?: number,
   tech?: string,
   role?: string,
-  wageMax?: string,
-  wageMin?: string,
+  wageMax?: number,
+  wageMin?: number,
   type?: string,
   local?: string,
   description?: string

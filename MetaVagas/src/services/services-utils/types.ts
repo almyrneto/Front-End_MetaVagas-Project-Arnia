@@ -113,7 +113,7 @@ export type Vacancy = {
   vacancyDescription: string;
   level: string;
   companyId: number;
-  tecnologies: string[];
+  tecnologies: Tecnologies;
   advertiserEmail: string;
   createdAt: Date;
   updatedAt: Date;

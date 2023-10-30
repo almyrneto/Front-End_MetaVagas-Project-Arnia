@@ -1,47 +1,47 @@
 export const technologies = [
     {   
         id : 1,
-        techName : "React",
+        tecName : "React",
         creatorsName : "Arnia"
     },
     {   
         id : 2,
-        techName : "PHP",
+        tecName : "PHP",
         creatorsName : "Arnia"
     },
     {   
         id : 3,
-        techName : "java",
+        tecName : "java",
         creatorsName : "Arnia"
     },
     {   
         id : 5,
-        techName : "Python",
+        tecName : "Python",
         creatorsName : "Arnia"
     },
     {   
         id : 6,
-        techName : ".Net",
+        tecName : ".Net",
         creatorsName : "Arnia"
     },
     {   
         id : 7,
-        techName : "CSS",
+        tecName : "CSS",
         creatorsName : "Arnia"
     },
     {   
         id : 8,
-        techName : "Html",
+        tecName : "Html",
         creatorsName : "Arnia"
     },
     {   
         id : 9,
-        techName : "Ruby",
+        tecName : "Ruby",
         creatorsName : "Arnia"
     },
     {   
         id : 10,
-        techName : "SQL",
+        tecName : "SQL",
         creatorsName : "Arnia"
     }
 ]

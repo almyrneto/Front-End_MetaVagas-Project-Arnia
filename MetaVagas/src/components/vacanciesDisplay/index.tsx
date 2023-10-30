@@ -1,6 +1,6 @@
 import S from "./styled.ts"
 import Checkbox from "./checkbox.tsx"
-import { vacancies, vacancy } from "../../assets/files/vacancies.ts"
+import { vacancies } from "../../assets/files/vacancies.ts"
 import { technologies } from "../../assets/files/technologies.ts"
 import { useEffect, useState } from "react";
 import coin from "../../assets/icons/money-dollar-circle-line.svg"
@@ -9,6 +9,10 @@ import ComputerIcon from "../../assets/icons/computer-line.tsx";
 import MinimumDistanceSlider from "./slider.tsx";
 import BarChartComponent from "./barChart.tsx";
 import { useLocation } from "react-router-dom";
+import { GetAllVacanciesService } from "../../services/vacancy.ts";
+import { GetAllTecnologiesService } from "../../services/tecnology.ts";
+import { Vacancies } from "../../services/services-utils/types.ts";
+import { MIN_VALUE_REG } from "recharts/types/util/ChartUtils";
 
 type searchFilter = {
     techsParam: [],
@@ -22,24 +26,84 @@ type searchFilter = {
 
 type searchParams = "techsParam" | "vacancyType" | "workType" | "companySize" | "vacancyLevel"
 
-type props = {logged : boolean}
-export const VacanciesDisplay = ({logged} : props) => {
+type props = { logged: boolean }
+export const VacanciesDisplay = ({ logged }: props) => {
     const [checked, setChecked] = useState<boolean>(false)
     const [searchFilters, setSearchFilters] = useState<searchFilter>({
         techsParam: [], vacancyType: [], workType: [], companySize: [], vacancyLevel: [], maxValue: 100000, minValue: 0
     })
+    const [error, setError] = useState("")
     const [isLogged, setIsLogged] = useState<boolean>(false)
-    const [techs, setTechs] = useState(technologies)
     const [vacanciesType, setVacanciesType] = useState(['remoto', 'presencial', 'híbrido'])
     const [workType, setWorkType] = useState(['clt', 'pj'])
     const [companySize, setCompanySize] = useState(['pequena', 'média', 'grande'])
     const [vacancyLevel, setVacancyLevel] = useState(['junior', 'pleno', 'senior'])
+    const [techs, setTechs] = useState(technologies)
+    const [allVacanciesFiltered, setAllVacanciesFiltered] = useState<Vacancies>()
     const location = useLocation()
     let locationMessage = ""
-    if(location.state){
+
+    
+    if (location.state) {
         locationMessage = location.state.message
     }
 
+    const getTecnologies = async () => {
+        try {
+            const allTechnologies = await GetAllTecnologiesService()
+            return (allTechnologies)
+        } catch (er) {
+            if (er instanceof Error) {
+                alert("não foi possível buscar tecnologias");
+                setError(er?.message);
+                return;
+            }
+            console.log(error)
+            setError("Deu erro");
+        }
+    }
+
+    const getVacancies = async(
+        page?: number,
+        limit? : number,
+        tech? : string,
+        role? : string,
+        wageMax? : number,
+        wageMin? : number,
+        type? : string,
+        local? : string,
+        description? : string
+        ) => {
+        try {
+            const allVacanciesFiltered = await GetAllVacanciesService(page, limit, tech, role, wageMax, wageMin, type, local, description)
+            setAllVacanciesFiltered(allVacanciesFiltered)
+        } catch (er) {
+            if (er instanceof Error) {
+                alert("não foi possível buscar tecnologias");
+                setError(er?.message);
+                return;
+            }
+            console.log(error)
+            setError("Deu erro");
+        }
+    }
+
+    const aplyFilters = () =>{
+        getVacancies(1, 20, searchFilters.techsParam[0], "", searchFilters.maxValue, searchFilters.minValue, searchFilters.workType[0], "", "")
+    }
+
+    const reduceTechArray = async (howManyTechsUNeed: number) => {
+        const allTecnologies = await getTecnologies()
+        setTimeout(() => {
+            if (allTecnologies && allTecnologies.length !== howManyTechsUNeed) {
+                let aux = [...allTecnologies]
+                setTechs(aux.slice(aux.length - howManyTechsUNeed))
+            }
+            else if (allTecnologies) {
+                setTechs(allTecnologies)
+            }
+        }, 1)
+    }
 
     function updateSearch(shouldPush: boolean, whereToUpdate: searchParams, whatValue: string) {
         let aux = searchFilters;
@@ -85,16 +149,14 @@ export const VacanciesDisplay = ({logged} : props) => {
         setSearchFilters({ ...searchFilters, minValue, maxValue })
     }
 
+
     useEffect(() => {
-        if(technologies.length > 9){
-            let aux = [...technologies]
-            setTechs(aux.slice(aux.length-8))
-        }
-        else{
-            setTechs(technologies)
-        }
+        getVacancies()
+        reduceTechArray(9)
         setIsLogged(logged)
-    },[])
+        window.scrollTo(0, 0)
+    }, [])
+
     useEffect(() => {
         setChecked(false)
         //setTechs(technologies)
@@ -102,7 +164,6 @@ export const VacanciesDisplay = ({logged} : props) => {
         setCompanySize(['pequena', 'média', 'grande'])
         setVacancyLevel(['junior', 'pleno', 'senior'])
         setWorkType(['clt', 'pj'])
-        window.scrollTo(0,0)
     }, [techs])
     function offSwitch() {
         setTechs([])
@@ -113,22 +174,24 @@ export const VacanciesDisplay = ({logged} : props) => {
         setSearchFilters({
             techsParam: [], vacancyType: [], workType: [], companySize: [], vacancyLevel: [], minValue: 0, maxValue: 100000
         })
+        setTimeout(() => {
+            reduceTechArray(9)
+        }, 1);
     }
-    console.log(logged)
 
     return (
         <S.Container>
             <h1>VAGAS EM <span>REACT</span></h1>
-            <p>{vacancies.length} Vagas em React</p>
+            <p>{allVacanciesFiltered?.vacancies.length} Vagas em React</p>
             <S.Display checked logged={isLogged}>
                 <div className="filters">
                     <div className="title"><h3>Filtre sua busca</h3><a onClick={() => { offSwitch(); }}>limpar</a></div>
                     <span>Tecnologia</span>
                     {techs.map((tech) => {
                         let techState = checked
-                        locationMessage === tech.techName.toLowerCase().trim() ? techState = true : techState = false
+                        locationMessage === tech.tecName.toLowerCase().trim() ? techState = true : techState = false
                         return (
-                            <Checkbox content={tech.techName} state={techState} key={tech.id} stateType="techsParam" handleMyValue={updateSearch} />
+                            <Checkbox content={tech.tecName} state={techState} key={tech.id} stateType="techsParam" handleMyValue={updateSearch} />
                         )
                     })}
                     <br /><span>Tipo de vaga</span><br />
@@ -156,18 +219,18 @@ export const VacanciesDisplay = ({logged} : props) => {
                             <Checkbox content={level} state={checked} key={index} stateType="vacancyLevel" handleMyValue={updateSearch} />
                         )
                     })}
-                    <button onClick={() => alert(JSON.stringify(searchFilters))}>Filtrar</button>
+                    <button onClick={() => {alert(JSON.stringify(searchFilters)); aplyFilters()}}>Filtrar</button>
                 </div>
                 <div className="vacancies">
                     <div className="grafic_box">
                         <h3>Tecnologias mais procuradas em <span>Brasil</span></h3>
-                        <BarChartComponent/>
+                        <BarChartComponent />
                     </div>
                     <div className="grafic_box">
                         <h3>Cidades que mais procuram por <span>React</span></h3>
-                        <BarChartComponent/>
+                        <BarChartComponent />
                     </div>
-                    <>{vacancies.map((vacancy) => {
+                    <>{allVacanciesFiltered?.vacancies.map((vacancy) => {
                         return (
                             <><div className="vacancy_box">
                                 <div className="jobTitle">
@@ -177,13 +240,13 @@ export const VacanciesDisplay = ({logged} : props) => {
                                 <h5>{vacancy.companyId}</h5>
                                 <div className="technologies">
                                     {
-                                        vacancy.technologies.map((tech) => {
+                                        vacancy.tecnologies.map((tech) => {
                                             return (
                                                 <>
                                                     <div className="technology_in_this_vacancy">
                                                         {
                                                             //passa a ser um array de technology
-                                                            tech
+                                                            tech.tecName
                                                         }
                                                     </div>
                                                 </>
