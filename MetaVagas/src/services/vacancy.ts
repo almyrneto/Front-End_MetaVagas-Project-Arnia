@@ -92,18 +92,12 @@ export const GetAllVacanciesService = async (
   limit?: number,
   tech?: string,
   role?: string,
-  wageMax?: string,
-  wageMin?: string,
+  wageMax?: number,
+  wageMin?: number,
   type?: string,
   local?: string,
   description?: string
 ): Promise<Vacancies> => {
-  const token = localStorage.getItem("token");
-
-  if (!token) {
-    throw new Error("Token not available");
-  }
-
   const params: { [key: string]: any } = {
     page,
     limit,
@@ -267,4 +261,3 @@ export const GetPublicVacanciesService = async (
     defaultErros(error);
   }
 };
-
