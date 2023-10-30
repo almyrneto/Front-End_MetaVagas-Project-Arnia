@@ -1,5 +1,6 @@
 export const vacancies = [
     {
+        id: 1,
         vacancyRole : "backend",
         wage : "3000",
         location : "São Paulo",
@@ -8,9 +9,10 @@ export const vacancies = [
         level : "junior",
         companyId : 1,
         advertiserId : 1,
-        technologies : ["nestJs", "Mongodb", "typescript", "postgres", "Python"]
+        technologies : []
     },
     {
+        id : 2,
         vacancyRole : "frontend",
         wage : "3000",
         location : "Brasília",
@@ -22,6 +24,7 @@ export const vacancies = [
         technologies : ["React", "typescript", "Flux", "Rest"]
     },
     {
+        id : 3,
         vacancyRole : "devops",
         wage : "3000",
         location : "Rio de Janeiro",
@@ -33,6 +36,7 @@ export const vacancies = [
         technologies : ["HTTP", "Java", "SRE", "SSL"]
     },
     {
+        id : 4,
         vacancyRole : "frontend",
         wage : "3000",
         location : "Caucaia",
@@ -44,6 +48,7 @@ export const vacancies = [
         technologies : ["React", "Typescript", "Flux", "Rest"]
     },
     {
+        id : 5,
         vacancyRole : "devops",
         wage : "7000",
         location : "São Paulo",
@@ -55,6 +60,7 @@ export const vacancies = [
         technologies : ["HTTP", "Java", "SRE", "SSL"]
     },
     {
+        id : 6,
         vacancyRole : "devops",
         wage : "7000",
         location : "Brasília",
@@ -66,6 +72,7 @@ export const vacancies = [
         technologies : ["HTTP", "Java", "SRE", "SSL"]
     },
     {
+        id : 7,
         vacancyRole : "backend",
         wage : "9000",
         location : "Rio de Janeiro",
@@ -77,6 +84,7 @@ export const vacancies = [
         technologies : ["nestJs", "Mongodb", "typescript", "postgres"]
     },
     {
+        id : 8,
         vacancyRole : "frontend",
         wage : "9000",
         location : "Belo Horizonte",
@@ -88,6 +96,7 @@ export const vacancies = [
         technologies : ["React", "Typescript", "Flux", "Rest"]
     },
     {
+        id : 9,
         vacancyRole : "devops",
         wage : "7000",
         location : "Brasília",
@@ -99,6 +108,7 @@ export const vacancies = [
         technologies : ["HTTP", "Java", "SRE", "SSL"]
     },
     {
+        id : 10,
         vacancyRole : "frontend",
         wage : "9000",
         location : "Caucaia",
@@ -110,6 +120,7 @@ export const vacancies = [
         technologies : ["React", "Typescript", "Flux", "Rest"]
     },
     {
+        id : 11,
         vacancyRole : "backend",
         wage : "3000",
         location : "São Paulo",
@@ -121,6 +132,7 @@ export const vacancies = [
         technologies : ["nestJs", "Mongodb", "typescript", "postgres"]
     },
     {
+        id : 12,
         vacancyRole : "backend",
         wage : "9000",
         location : "Rio de Janeiro",

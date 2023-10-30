@@ -3,34 +3,55 @@ import MapPin from "../../assets/icons/mapPin"
 import Bloom from "../../assets/icons/search"
 import { ButtonSave, ButtonSearch, ButtonVacancie, Container, ContainerButton, ContainerInputL, ContainerInputS, ContainerText, IconPin, IconSearch, InputContainer, InputLocation, InputSearch, InputTitle, Text, TextItalic } from "./styled"
 import IconBookMark from "../../assets/icons/BookMark"
-import { GetAllVacanciesService } from "../../services/vacancy"
-import { Vacancies } from "../../services/services-utils/types"
-import { CardJobListings, ContentCard, ContentIcon, ContentTechnology, DetailsPlus, TitleCard } from "../joblistings/styled"
-import MiniMap from "../../assets/icons/miniMap"
-import PcIcon from "../../assets/icons/miniPc"
 
+type searchFilter = {
+    techsParam: string[],
+    vacancyType: string[],
+    workType: string[],
+    companySize: string[],
+    vacancyLevel: [],
+    role : string,
+    local : string,
+    maxValue: number,
+    minValue: number,
+}
+type searchParams = "techsParam" | "vacancyType" | "workType" | "companySize" | "vacancyLevel" | "local" | "keyWord"
+type props = { 
+    handleMyValue : (shouldPush: boolean, whereToUpdate: searchParams, whatValue: string) => void,
+    searchFilters: searchFilter,
+    applyFilters: () => void,
+ }
 
-export const CSearchTimeline = () => {
+export const CSearchTimeline = ({handleMyValue, applyFilters} : props) => {
     const [isActive, setIsActive] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-    const [location, setLocation] = useState(false);
-    const [searchResult, setSearchResult] = useState<Vacancies | null>(null);
+    const [location, setLocation] = useState("");
+    //const [searchResult, setSearchResult] = useState<Vacancies | null>(null);
+    
+    const handleClick = () => {
+        handleMyValue(true, "keyWord", searchTerm);
+        handleMyValue(true, "local", location);
+        
+        setTimeout(() => {
+            applyFilters()
+        }, 100);
 
-    const handleSearch = async () => {
-        try {
-            const locationString = location ? 'true' : 'false';
-            const results = await GetAllVacanciesService(undefined, undefined, undefined, undefined, undefined, undefined, undefined, locationString, searchTerm);
-
-            if (results instanceof Array) {
-                setSearchResult(results);
-            } else {
-                setSearchResult({ vacancies: [], page: 0, pageSize: 0, quantity: 0 });
-            }
-        } catch (error) {
-            console.error("Erro na busca de vagas:", error)
-            setSearchResult({ vacancies: [], page: 0, pageSize: 0, quantity: 0 });
-        }
     }
+    //const handleSearch = async () => {
+       // try {
+        //    const locationString = location ? 'true' : 'false';
+       //     const results = await GetAllVacanciesService(undefined, undefined, undefined, undefined, undefined, undefined, undefined, locationString, searchTerm);
+
+        //    if (results instanceof Array) {
+        //        setSearchResult(results);
+        //    } else {
+        //        setSearchResult({ vacancies: [], page: 0, pageSize: 0, quantity: 0 });
+        //    }
+        //} catch (error) {
+        //    console.error("Erro na busca de vagas:", error)
+        //    setSearchResult({ vacancies: [], page: 0, pageSize: 0, quantity: 0 });
+       // }
+   // }
 
     return (
         <Container>
@@ -47,9 +68,9 @@ export const CSearchTimeline = () => {
                     <IconPin>
                         <MapPin />
                     </IconPin>
-                    <InputLocation type="text" placeholder="Localização" onChange={(e) => setLocation(e.target.value === 'Sim')} />
+                    <InputLocation type="text" placeholder="Localização" onChange={(e) => setLocation(e.target.value)} />
                 </ContainerInputL>
-                <ButtonSearch onClick={handleSearch}>
+                <ButtonSearch onClick={handleClick}>
                     Buscar vagas
                 </ButtonSearch>
             </InputContainer>
@@ -80,34 +101,6 @@ export const CSearchTimeline = () => {
                     Salvar busca
                 </ButtonSave>
             </ContainerText>
-            {searchResult && searchResult.vacancies.length > 0 ? (
-                <ul>
-                    {searchResult.vacancies.map((vacancy) => (
-                        <CardJobListings key={vacancy.id}>
-                            <TitleCard>
-                                {vacancy.vacancyRole}
-                            </TitleCard>
-                            <ContentCard>
-                                <ContentIcon>
-                                    <MiniMap />
-                                </ContentIcon>
-                                Localização: {vacancy.location}
-                            </ContentCard>
-                            <ContentTechnology>
-                                <ContentIcon>
-                                    <PcIcon />
-                                </ContentIcon>
-                                {/* Tecnologia: <b>{vacancie.tecnologies[0]}</b> */}
-                            </ContentTechnology>
-                            <DetailsPlus>
-                                Ver mais detalhes
-                            </DetailsPlus>
-                        </CardJobListings>
-                    ))}
-                </ul>
-            ) : (
-                <p>Nenhuma vaga encontrada</p>
-            )}
         </Container>
     )
 }
